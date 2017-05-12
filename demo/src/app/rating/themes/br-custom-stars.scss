@@ -1,0 +1,27 @@
+.br-custom {
+
+  .br-unit {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('assets/star.svg');
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 0.3125em;
+    width: 1.75em;
+    filter: grayscale(1);
+
+    &:first-child { 
+      margin-left: 0;
+    }
+  }
+
+  .br-unit-selected, .br-unit-active {
+    filter: grayscale(0);
+  }
+}
+

@@ -1,0 +1,8 @@
+<div [class]="'br br-' + theme" (mouseleave)="leave()" [class.br-readonly]="readOnly">
+
+  <div class="br-unit" *ngFor="let unit of ratingArr" [class.br-fraction]="unit.fraction"
+      [class.br-unit-selected]="unit.selected" [class.br-unit-active]="unit.active"
+      (click)="unit.click($event)" (mouseenter)="unit.enter()"></div>
+
+  <!--<div class="br-text">{{rateValue}}</div>-->
+</div>
