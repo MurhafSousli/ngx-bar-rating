@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400');
+@import '~normalize.css';
+@import '~font-awesome/css/font-awesome.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import 'app/rating/themes/br-custom-stars';
+@import 'app/rating/themes/br-bootstrap-stars';
+@import 'app/rating/themes/br-css-stars';
+@import 'app/rating/themes/br-fontawesome-stars';
+@import 'app/rating/themes/br-fontawesome-o-stars';
+@import 'app/rating/themes/br-numbers';
+@import 'app/rating/themes/br-squares';
+@import 'app/rating/themes/br-vertical-bars';
+@import 'app/rating/themes/br-movie';
+@import 'app/rating/themes/br-pokemon';
+
+html, body {
+    height: 100%;
+}
+
+.forkme{
+    position: fixed;
+    left: 2em;
+    top: 1.5em;
+    z-index: 99999;
+    opacity: 0.4;
+    i{
+        font-size: 60px;
+    }
+}
+
+body {
+    color: #252627;
+}
+
+
+.bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+img {
+    margin-bottom: 30px;
+    width: 200px;
+}
+.header{
+    text-align: center;
+}
+.main{
+    margin-top: -3em;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    background-color: #F8F8F8;
+}
+
+.container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    margin: 3em 0;
+}
+
+.stars {
+    margin-top: 100px;
+}
+
+app-root {
+    display: block;
+    padding-top: 100px;
+
+
+    h1{
+        font-size: 4em;
+    }
+
+    h1, h2, h3, h4, p { 
+        font-family: 'Poppins', sans-serif;
+    }
+    h2, h3, p, h4 { 
+        color : #757575;
+    }
+
+    .panel {
+        border-width: 2px;
+        border-radius: 0;
+        margin-bottom: 30px;
+    }
+    .panel-heading {
+        padding: 14px;
+        text-align: center;
+        font-size: 1.4em;
+        border-radius: 0;
+        font-family: 'Poppins', sans-serif !important;
+    }
+    .panel-body {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .row{
+        width: 85%;
+    }
+
+    .panel-primary{
+        border-color: #4278f5;
+        .panel-heading{
+            background-color: #4278f5;
+        }
+    } 
+    .panel-warning{
+        border-color: #edb867;
+        .panel-heading{
+            border-bottom: 1px solid transparent;
+            background-color: #edb867;
+            color: white;
+        }
+    } 
+    .panel-success {
+        border-color: #50E3C2;
+         .panel-heading{
+            border-bottom: 1px solid transparent;
+            background-color: #50E3C2;
+            color: white;
+         }
+    }
+}
+
+.footer, .author-links {
+}
+
+.footer {
+    text-align: center;
+    .author{
+        margin-top: -0.5em;
+    }
+    .author-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        padding: 1em;
+        a {
+            color : #757575;
+            text-decoration: none;
+            margin: 0.5em;
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

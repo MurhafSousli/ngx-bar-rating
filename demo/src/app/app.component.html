@@ -1,0 +1,113 @@
+<div class="bg"></div>
+<a class="forkme" href="https://github.com/MurhafSousli/ngx-rating">
+    <i class="fa fa-github" aria-hidden="true"></i>
+</a>
+
+<div class="header">
+    <img [src]="'assets/ngx-rating.svg'">
+    <h1>Angular Rating</h1>
+</div>
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Movie Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="5" [theme]="'movie'"></ng-rating>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">Star Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="5" [theme]="'custom'"></ng-rating>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Vertical Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="10" [theme]="'vertical'"></ng-rating>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Horizontal Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="10" [theme]="'numbers'"></ng-rating>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Square Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="5" [theme]="'squares'"></ng-rating>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">Custom Rating</div>
+                    <div class="panel-body">
+                        <ng-rating [(rating)]="value" [units]="8" [theme]="'pokemon'"></ng-rating>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stars container">
+        <h3>A few flavours of star ratings compatible with popular libraries</h3>
+        <div class="row">
+
+            <div class="col-md-4">
+                <section>
+                    <ng-rating [(rating)]="value" [units]="5"></ng-rating>
+                    <p>CSS Stars</p>
+                </section>
+            </div>
+
+            <div class="col-md-4">
+                <section>
+                    <ng-rating [(rating)]="value" [units]="5" [theme]="'bootstrap'"></ng-rating>
+                    <p>Bootstrap</p>
+                </section>
+            </div>
+
+            <div class="col-md-4">
+                <section>
+                    <ng-rating [(rating)]="value" [units]="5" [theme]="'fontawesome'"></ng-rating>
+                    <p>Fontawesome</p>
+                </section>
+            </div>
+        </div>
+
+
+
+        <section>
+            <h3>It can be used to display fractional star ratings.</h3>
+            <ng-rating [(rating)]="value" [units]="10" [theme]="'fontawesome-o'"></ng-rating>
+        </section>
+    </div>
+
+
+
+</div>
+
+<div class="footer">
+    <h4 class="author">Made by Murhaf Sousli</h4>
+    <div class="author-links">
+        <a class="fa fa-github-alt" href="https://github.com/MurhafSousli"></a>
+        <a class="fa fa-twitter" href="https://twitter.com/MurhafSousli"></a>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.br {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 1.75em;
+  margin: 15px 0;
+}
+.br-unit {
+  cursor: pointer;
+  // some tweaks
+  -webkit-font-smoothing: antialiased;
+  text-rendering: auto;
+}
+.br-unit-selected {
+}
+.br-readyonly .br-unit{
+  cursor: default;
+}
+// .br-text {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center; 
+//     width: 20px;
+//     padding: 0 1em;
+// }
