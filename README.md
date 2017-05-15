@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
+  <img height="150px" width="150px" style="text-align: center;" src="https://rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
   <p align="center">Minimal, light-weight Angular ratings.</p>
   <p align="center">
