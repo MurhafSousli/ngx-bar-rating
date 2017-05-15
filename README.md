@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="150px" width="150px" style="text-align: center;" src="https://rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
+  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/af32c04d/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
   <p align="center">Minimal, light-weight Angular ratings.</p>
 </p>
@@ -121,32 +121,57 @@ It can be used with angular forms and reactive forms, for example:
 
 Import rating theme using in the global style `style.css`
 
+
+ - Pure css stars (default) `[theme]="'fontawesome-o'"`
+
 ```css
-// Pure css stars (default)
-@import '~ngx-bar-rating/themes/br-default-theme';
+@import '~ngx-bar-rating/themes/br-default-theme'
+```
 
-// Bootstrap stars
+ - Bootstrap stars `[theme]="'bootstrap'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-bootstrap-theme';
+```
 
-// Fontawesome stars
+- Fontawesome stars `[theme]="'fontawesome'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-fontawesome-theme';
+```
 
-// Fontawesome-o stars
+ - Fontawesome-o stars `[theme]="'fontawesome-o'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-fontawesome-o-theme';
+```
 
-// Horizontal bars
+ - Horizontal bars `[theme]="'horizontal'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-horizontal-theme';
+```
 
-// Vertical bars
+ - Vertical bars `[theme]="'vertical'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-vertical-theme';
+```
 
-// Custom svg stars
+ - Custom stars `[theme]="'custom-stars'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-custom-stars-theme';
+```
 
-// Movie rating
+ - Movie rating `[theme]="'movie'"`
+```css
 @import '~ngx-bar-rating/themes/br-movie-theme';
+```
 
-// Square rating
+ - Square rating `[theme]="'square'"`
+
+```css
 @import '~ngx-bar-rating/themes/br-square-theme';
 ```
 

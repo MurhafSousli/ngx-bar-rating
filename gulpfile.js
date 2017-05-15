@@ -51,6 +51,9 @@ const gulpRollup = require('gulp-better-rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
 const rollupUglify = require('rollup-plugin-uglify');
 
+/** To compile themes scss to css */
+const gulpSass = require('gulp-sass');
+
 
 const LIBRARY_NAME = 'ngx-bar-rating';
 
@@ -58,6 +61,7 @@ const config = {
     allTs: 'src/**/!(*.spec).ts',
     allSass: 'src/**/*.scss',
     allHtml: 'src/**/*.html',
+    themes: 'src/themes/**/*.scss',
     demoDir: 'demo/',
     outputDir: 'dist/',
     coverageDir: 'coverage/'
@@ -296,9 +300,19 @@ gulp.task('watch', () => {
     gulp.watch([config.allTs, config.allHtml, config.allSass], ['compile']);
 });
 
+// Copy themes folder
+gulp.task('themes', () => {
+    const sassOptions = {
+        outputStyle: 'compressed'
+    };
+    gulp.src([config.themes])
+        .pipe(gulpSass(sassOptions))
+        .pipe(gulp.dest(`${config.outputDir}/themes`));
+});
+
 // Build the 'dist' folder (without publishing it to NPM)
 gulp.task('build', ['clean'], (cb) => {
-    runSequence('compile', 'package', 'bundle', cb);
+    runSequence('compile', 'package', 'bundle', 'themes', cb);
 });
 
 // Build and then Publish 'dist' folder to NPM
