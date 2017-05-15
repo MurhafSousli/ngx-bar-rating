@@ -1,10 +1,10 @@
-import { AdvancedProgressPage } from './app.po';
+import { NgxBarRatingPage } from './app.po';
 
-describe('advanced-progress App', () => {
-  let page: AdvancedProgressPage;
+describe('ngx-bar-rating App', () => {
+  let page: NgxBarRatingPage;
 
   beforeEach(() => {
-    page = new AdvancedProgressPage();
+    page = new NgxBarRatingPage();
   });
 
   it('should display message saying app works', () => {

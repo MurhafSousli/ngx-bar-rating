@@ -1,0 +1,22 @@
+.footer {
+  text-align: center;
+  .author {
+    margin-top: -0.5em;
+  }
+  .author-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    padding: 1em 0 2em;
+    a {
+      color: #757575;
+      text-decoration: none;
+      margin: 0.5em;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

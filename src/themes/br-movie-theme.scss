@@ -1,0 +1,41 @@
+@import "variables";
+
+.br-movie {
+
+  .br-units {
+    margin: 15px 0;
+  }
+
+  .br-unit {
+    display: block;
+    width: 60px;
+    height: 8px;
+    float: left;
+    background-color: lighten($blue-color, 25%);
+    margin: 1px;
+
+    &.br-active,
+    &.br-selected {
+      background-color: $blue-color;
+    }
+  }
+
+  &.br-readonly {
+
+    .br-active, .br-selected {
+      background-color: lighten($blue-color, 10%);
+    }
+  }
+
+  .br-text {
+    letter-spacing: 2px;
+    font-size: 16px;
+    clear: both;
+    width: 240px;
+    text-align: center;
+    font-weight: 600;
+    display: block;
+    padding: .5em 0;
+    color: $blue-color;
+  }
+}

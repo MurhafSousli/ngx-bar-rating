@@ -1,0 +1,19 @@
+.br-default .br-units {
+  align-items: center;
+}
+.br-default .br-unit {
+  margin-right: 5px;
+  font-size: 23px;
+  height: 18px;
+  width: 18px;
+}
+.br-default .br-unit:after {
+  content: "\2605";
+  color: #d2d2d2;
+}
+.br-default .br-selected:after {
+  color: #EDB867;
+}
+.br-default .br-active:after {
+  color: #EDB867;
+}

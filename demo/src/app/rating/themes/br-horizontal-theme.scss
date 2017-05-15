@@ -1,0 +1,45 @@
+@import 'variables';
+
+.br-horizontal {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .br-units {
+    //flex: 1;
+  }
+
+  .br-unit {
+    display: block;
+    width: 12px;
+    height: 32px;
+    float: left;
+    background-color: lighten($orange-color, 25%);
+    margin: 1px;
+    text-align: center;
+
+    &.br-active,
+    &.br-selected {
+      background-color: $orange-color;
+    }
+  }
+
+  &.br-readonly {
+    .br-unit {
+      cursor: default;
+
+      &.br-active,
+      &.br-selected {
+        background-color: lighten($orange-color, 10%);
+      }
+    }
+
+  }
+  .br-text {
+    width: 20px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: $orange-color;
+  }
+}

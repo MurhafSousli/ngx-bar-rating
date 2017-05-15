@@ -1,0 +1,35 @@
+<div class="stars container">
+  <h3>A few flavours of star ratings compatible with popular libraries</h3>
+  <div class="row">
+
+    <div class="col-md-4">
+      <section>
+        <bar-rating [(rate)]="cssRate" [max]="5"></bar-rating>
+        <p>CSS Stars</p>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section>
+        <bar-rating [(rate)]="bootRate" [max]="5" [theme]="'bootstrap'"></bar-rating>
+        <p>Bootstrap</p>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section>
+        <bar-rating [(rate)]="faRate" [max]="5" [theme]="'fontawesome'"></bar-rating>
+        <p>Fontawesome</p>
+      </section>
+    </div>
+  </div>
+
+
+  <section>
+    <h3>It can be used to display fractional star ratings.</h3>
+    <bar-rating [rate]="faoRate" (rateChange)="onFaoRate($event)" [max]="10" [theme]="'fontawesome-o'"></bar-rating>
+    <!--<bar-rating [ngModel]="faoRate" (ngModelChange)="onFaoRate($event)" [max]="10" [theme]="'fontawesome-o'"></bar-rating>-->
+    <p *ngIf="!faoRated">Current rating: {{faoRate}}</p>
+    <p *ngIf="faoRated">Your rating: {{faoRate}} <i class="link fa fa-times-circle" (click)="faoReset(5.6)"></i></p>
+  </section>
+</div>

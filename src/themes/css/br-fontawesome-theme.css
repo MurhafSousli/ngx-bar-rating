@@ -1,0 +1,17 @@
+.br-fontawesome .br-units {
+  align-items: center;
+}
+.br-fontawesome .br-unit {
+  font: normal normal normal 20px/1 FontAwesome;
+  margin-right: 2px;
+}
+.br-fontawesome .br-unit:after {
+  content: '\f005';
+  color: #d2d2d2;
+}
+.br-fontawesome .br-selected:after {
+  color: #EDB867;
+}
+.br-fontawesome .br-active:after {
+  color: #EDB867;
+}

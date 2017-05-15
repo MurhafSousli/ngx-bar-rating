@@ -1,0 +1,30 @@
+.br-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.br-vertical .br-units {
+  width: 120px;
+  flex-direction: column-reverse;
+  margin: 10px 0;
+}
+.br-vertical .br-unit {
+  display: block;
+  width: 120px;
+  height: 5px;
+  background-color: #fbedd9;
+  margin-top: 1px;
+}
+.br-vertical .br-unit.br-active, .br-vertical .br-unit.br-selected {
+  background-color: #EDB867;
+}
+.br-vertical.br-readonly .br-active,
+.br-vertical.br-readonly .br-selected {
+  border: 2px solid #729bf8;
+  color: #729bf8;
+}
+.br-vertical .br-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #EDB867;
+}

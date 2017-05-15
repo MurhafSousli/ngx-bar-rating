@@ -1,0 +1,28 @@
+@import 'variables';
+
+.br-fontawesome {
+
+  .br-units {
+    align-items: center;
+  }
+
+  .br-unit {
+    font: normal normal normal 20px/1 FontAwesome;
+    margin-right: 2px;
+
+    &:after {
+      content: '\f005';
+      color: $star-default;
+    }
+  }
+
+  .br-selected:after {
+    color: $star-selected;
+  }
+
+  .br-active:after {
+    color: $star-active;
+  }
+
+}
+
