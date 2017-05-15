@@ -121,33 +121,58 @@ It can be used with angular forms and reactive forms, for example:
 
 Import rating theme using in the global style `style.css`
 
+
+ - Pure css stars (default) `[theme]="'fontawesome-o'"`
+
 ```css
-// Pure css stars (default)
-@import '~ngx-bar-rating/themes/br-default-theme.css';
+@import '~ngx-bar-rating/themes/br-default-theme'
+```
 
-// Bootstrap stars
-@import '~ngx-bar-rating/themes/br-bootstrap-theme.css';
+ - Bootstrap stars `[theme]="'bootstrap'"`
 
-// Fontawesome stars
-@import '~ngx-bar-rating/themes/br-fontawesome-theme.css';
+```css
+@import '~ngx-bar-rating/themes/br-bootstrap-theme';
+```
 
-// Fontawesome-o stars
-@import '~ngx-bar-rating/themes/br-fontawesome-o-theme.css';
+- Fontawesome stars `[theme]="'fontawesome'"`
 
-// Horizontal bars
-@import '~ngx-bar-rating/themes/br-horizontal-theme.css';
+```css
+@import '~ngx-bar-rating/themes/br-fontawesome-theme';
+```
 
-// Vertical bars
-@import '~ngx-bar-rating/themes/br-vertical-theme.css';
+ - Fontawesome-o stars `[theme]="'fontawesome-o'"`
 
-// Custom svg stars
-@import '~ngx-bar-rating/themes/br-custom-stars-theme.css';
+```css
+@import '~ngx-bar-rating/themes/br-fontawesome-o-theme';
+```
 
-// Movie rating
-@import '~ngx-bar-rating/themes/br-movie-theme.css';
+ - Horizontal bars `[theme]="'horizontal'"`
 
-// Square rating
-@import '~ngx-bar-rating/themes/br-square-theme.css';
+```css
+@import '~ngx-bar-rating/themes/br-horizontal-theme';
+```
+
+ - Vertical bars `[theme]="'vertical'"`
+
+```css
+@import '~ngx-bar-rating/themes/br-vertical-theme';
+```
+
+ - Custom stars `[theme]="'custom-stars'"`
+
+```css
+@import '~ngx-bar-rating/themes/br-custom-stars-theme';
+```
+
+ - Movie rating `[theme]="'movie'"`
+```css
+@import '~ngx-bar-rating/themes/br-movie-theme';
+```
+
+ - Square rating `[theme]="'square'"`
+
+```css
+@import '~ngx-bar-rating/themes/br-square-theme';
 ```
 
 Rating style can be easily customized, check the classes used in any theme and add your own css.
