@@ -2,13 +2,14 @@
   <img height="150px" width="150px" style="text-align: center;" src="https://rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
   <p align="center">Minimal, light-weight Angular ratings.</p>
-  <p align="center">
-    [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-bar-rating)
-    [![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://www.npmjs.com/package/ngx-bar-rating)
-    [![Build Status](https://travis-ci.org/MurhafSousli/ngx-bar-rating.svg)](https://travis-ci.org/MurhafSousli/ngx-bar-rating)
-    [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
-  </p>
 </p>
+
+[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-bar-rating)
+[![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://www.npmjs.com/package/ngx-bar-rating)
+[![Build Status](https://travis-ci.org/MurhafSousli/ngx-bar-rating.svg)](https://travis-ci.org/MurhafSousli/ngx-bar-rating)
+[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
+
+___
 
 ## Table of Contents 
  
