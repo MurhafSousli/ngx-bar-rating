@@ -1,0 +1,22 @@
+.br-fontawesome-o .br-unit {
+  align-items: center;
+}
+.br-fontawesome-o .br-unit {
+  font: normal normal normal 20px/1 FontAwesome;
+  margin-right: 2px;
+}
+.br-fontawesome-o .br-unit:after {
+  content: '\f006';
+  color: #d2d2d2;
+}
+.br-fontawesome-o .br-selected:after {
+  content: '\f005';
+  color: #50E3C2;
+}
+.br-fontawesome-o .br-active:after {
+  content: '\f005';
+  color: #50E3C2;
+}
+.br-fontawesome-o .br-fraction:after {
+  content: '\f123';
+}

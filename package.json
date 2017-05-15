@@ -1,6 +1,6 @@
 {
   "name": "ngx-bar-rating",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Angular Bar Rating",
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
   "keywords": [
     "bar-rating",
     "rating",
+    "angular4",
     "angular2",
     "angular",
     "bar",
