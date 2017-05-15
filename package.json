@@ -30,12 +30,11 @@
     "test": " gulp test"
   },
   "dependencies": {
-    "@angular/core": "4.0.0",
     "@angular/common": "4.0.0",
+    "@angular/core": "4.0.0",
     "@angular/forms": "4.0.0"
   },
   "devDependencies": {
-    "rxjs": "^5.4.0",
     "@angular/compiler": "4.0.0",
     "@angular/compiler-cli": "4.0.0",
     "@angular/platform-browser": "4.0.0",
@@ -56,6 +55,7 @@
     "gulp-coveralls": "^0.1.4",
     "gulp-file": "^0.3.0",
     "gulp-inline-ng2-template": "^4.0.0",
+    "gulp-sass": "^3.1.0",
     "gulp-tslint": "^7.1.0",
     "gulp-util": "^3.0.7",
     "html-loader": "^0.4.4",
@@ -69,7 +69,9 @@
     "karma-remap-coverage": "^0.1.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "2.0.1",
+    "node-sass": "^4.5.2",
     "null-loader": "^0.1.1",
+    "postcss": "^5.2.17",
     "postcss-scss": "^0.4.0",
     "postcss-strip-inline-comments": "^0.1.5",
     "pump": "^1.0.2",
@@ -77,6 +79,8 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "run-sequence": "^1.2.2",
+    "rxjs": "^5.4.0",
+    "sass-loader": "^6.0.3",
     "source-map-loader": "^0.1.5",
     "to-string-loader": "^1.1.5",
     "tslint": "^4.5.1",
@@ -84,9 +88,6 @@
     "webpack": "~2.4.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "~2.4.2",
-    "zone.js": "0.8.5",
-    "sass-loader": "^6.0.3",
-    "postcss": "^5.2.17",
-    "node-sass": "^4.5.2"
+    "zone.js": "0.8.5"
   }
 }
