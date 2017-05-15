@@ -158,10 +158,10 @@ Import rating theme using in the global style `style.css`
 @import '~ngx-bar-rating/themes/br-vertical-theme';
 ```
 
- - Custom stars `[theme]="'custom-stars'"`
+ - Custom stars `[theme]="'stars'"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-custom-stars-theme';
+@import '~ngx-bar-rating/themes/br-stars-theme';
 ```
 
  - Movie rating `[theme]="'movie'"`
