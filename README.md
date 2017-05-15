@@ -1,12 +1,10 @@
 <p align="center">
   <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
-
-  ___
-
   <p align="center">Minimal, light-weight Angular ratings.</p>
 </p>
 
+  ___
 
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-bar-rating)
 [![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://github.com/MurhafSousli/ngx-bar-rating)
