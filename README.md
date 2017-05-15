@@ -1,7 +1,12 @@
 <p align="center">
   <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
+
+  ___
+
+  <p align="center">Minimal, light-weight Angular ratings.</p>
 </p>
+
 
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-bar-rating)
 [![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://github.com/MurhafSousli/ngx-bar-rating)
@@ -15,7 +20,8 @@
  - [Usage](#usage) 
  - [Options](#options)
  - [Themes](#themes)
- - [Custom Style](#styling)   
+ - [Custom Style](#styling)  
+ - [Issues](#issues) 
  - [Author](#author)
 
 <a name="installation"/>
@@ -83,12 +89,15 @@ In your template
  - **[disabled]**: A flag indicating if rating is disabled. works only with forms, default `false`.
 
  - **(rateChange)**: An event fired when a user selects a new rating.
+
    *Event's payload equals to the newly selected rating.*
 
  - **(hover)**: An event fired when a user is hovering over a given rating.
+
    *Event's payload equals to the rating being hovered over.*
 
  - **(leave)**: An event fired when a user stops hovering over a given rating.
+
    *Event's payload equals to the rating of the last item being hovered over.*
 
 
