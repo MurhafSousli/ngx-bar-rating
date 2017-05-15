@@ -1,0 +1,30 @@
+@import 'variables';
+
+.br-default {
+
+  .br-units {
+    align-items: center;
+  }
+
+  .br-unit {
+    margin-right: 5px;
+    font-size: 23px;
+    height: 18px;
+    width: 18px;
+
+    &:after {
+      content: "\2605";
+      color: $star-default;
+    }
+  }
+
+  .br-selected:after {
+    color: $star-selected;
+  }
+
+  .br-active:after {
+    color: $star-active;
+  }
+
+}
+

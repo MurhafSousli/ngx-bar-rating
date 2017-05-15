@@ -52,7 +52,7 @@ const rollupNodeResolve = require('rollup-plugin-node-resolve');
 const rollupUglify = require('rollup-plugin-uglify');
 
 
-const LIBRARY_NAME = 'ngx-rating';
+const LIBRARY_NAME = 'ngx-bar-rating';
 
 const config = {
     allTs: 'src/**/!(*.spec).ts',
@@ -202,7 +202,7 @@ gulp.task('package', (cb) => {
     //only copy needed properties from project's package json
     fieldsToCopy.forEach((field) => { targetPkgJson[field] = pkgJson[field]; });
 
-    targetPkgJson['main'] = `bundles/ngx-rating.umd.js`;
+    targetPkgJson['main'] = `bundles/ngx-bar-rating.umd.js`;
     targetPkgJson['module'] = 'index.js';
     targetPkgJson['typings'] = 'index.d.ts';
 
@@ -235,7 +235,9 @@ gulp.task('package', (cb) => {
 gulp.task('bundle', () => {
     const globals = {
         // Angular dependencies
-        '@angular/core': 'ng.core'
+        '@angular/core': 'ng.core',
+        '@angular/common': 'ng.common',
+        '@angular/forms': 'ng.forms'
     };
 
     const rollupOptions = {
@@ -250,10 +252,10 @@ gulp.task('bundle', () => {
     const rollupGenerateOptions = {
         // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
         moduleId: '',
-        moduleName: 'ngxRating', //require for 'umd' bundling, must be a valid js identifier, see rollup/rollup/issues/584
+        moduleName: 'ngxBarRating', //require for 'umd' bundling, must be a valid js identifier, see rollup/rollup/issues/584
         format: 'umd',
         globals,
-        dest: 'ngx-rating.umd.js'
+        dest: 'ngx-bar-rating.umd.js'
     };
 
     return gulp.src(`${config.outputDir}/index.js`)
@@ -270,9 +272,9 @@ gulp.task('demo', (done) => {
 
 });
 
-// Link 'dist' folder (create a local 'ngx-rating' package that symlinks to it)
-// This way, we can have the demo project declare a dependency on 'ngx-rating' (as it should)
-// and, thanks to 'npm link ngx-rating' on demo project, be sure to always use the latest built
+// Link 'dist' folder (create a local 'ngx-bar-rating' package that symlinks to it)
+// This way, we can have the demo project declare a dependency on 'ngx-bar-rating' (as it should)
+// and, thanks to 'npm link ngx-bar-rating' on demo project, be sure to always use the latest built
 // version of the library ( which is in 'dist/' folder)
 gulp.task('link', (done) => {
     exec('npm link', { cwd: `${config.outputDir}` }, execCallback(done)); // run 'npm link' from 'dist' folder

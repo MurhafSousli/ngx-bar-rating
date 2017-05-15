@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.br {
+  position: relative;
+  margin: 15px 0;
+}
+
+.br-units {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.br-unit {
+  cursor: pointer;
+  // some tweaks
+  -webkit-font-smoothing: antialiased;
+  text-rendering: auto;
+}
+
+.br-selected {
+}
+
+.br-readonly, .br-disabled {
+  .br-unit {
+    cursor: default;
+  }
+}

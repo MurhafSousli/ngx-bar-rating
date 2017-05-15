@@ -1,0 +1,28 @@
+@import 'variables';
+
+.br-bootstrap {
+
+  .br-units {
+    align-items: center;
+  }
+
+  .br-unit {
+    font: normal normal normal 18px/1 'Glyphicons Halflings';
+    margin-right: 0.125em;
+
+    &:after {
+      content: '\e006';
+      color: $star-default;
+    }
+  }
+
+  .br-selected:after {
+    color: $star-selected;
+  }
+
+  .br-active:after {
+    color: $star-active;
+  }
+
+}
+

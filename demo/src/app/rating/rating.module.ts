@@ -1,17 +1,21 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RatingComponent } from './rating.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {BarRatingComponent} from './component/bar-rating.component';
+import {BarRatingPipe} from './pipe/bar-rating.pipe';
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
-    declarations: [
-        RatingComponent
-    ],
-    exports: [
-        RatingComponent
-    ]
+  declarations: [
+    BarRatingComponent,
+    BarRatingPipe
+  ],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
+  exports: [
+    BarRatingComponent
+  ]
 })
-export class RatingModule {
+export class BarRatingModule {
 }

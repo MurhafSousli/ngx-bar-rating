@@ -1,20 +1,25 @@
 {
-  "name": "ngx-disqus",
-  "version": "2.1.0",
-  "description": "Angular Disqus Module",
+  "name": "ngx-bar-rating",
+  "version": "1.0.0",
+  "description": "Angular Bar Rating",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:MurhafSousli/ngx-disqus.git"
+    "url": "git+ssh://git@github.com:MurhafSousli/ngx-bar-rating.git"
   },
-  "homepage": "https://github.com/MurhafSousli/ngx-disqus#readme",
+  "homepage": "https://github.com/MurhafSousli/ngx-bar-rating#readme",
   "bugs": {
-    "url": "https://github.com/MurhafSousli/ngx-disqus/issues"
+    "url": "https://github.com/MurhafSousli/ngx-bar-rating/issues"
   },
   "keywords": [
-    "disqus",
+    "bar-rating",
+    "rating",
+    "angular4",
     "angular2",
     "angular",
-    "comments"
+    "bar",
+    "bar-rating",
+    "star",
+    "stars"
   ],
   "author": "Murhaf Sousli <murhafsousi@gmail.com>",
   "license": "MIT",
@@ -25,10 +30,12 @@
     "test": " gulp test"
   },
   "dependencies": {
-    "@angular/core": "4.0.0"
+    "@angular/core": "4.0.0",
+    "@angular/common": "4.0.0",
+    "@angular/forms": "4.0.0"
   },
   "devDependencies": {
-    "rxjs": "5.2.0",
+    "rxjs": "^5.4.0",
     "@angular/compiler": "4.0.0",
     "@angular/compiler-cli": "4.0.0",
     "@angular/platform-browser": "4.0.0",
