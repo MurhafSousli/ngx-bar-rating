@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="150px" width="150px" style="text-align: center;" src="https://rawgit.com/MurhafSousli/ngx-bar-rating/master/assets/logo.svg">
+  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/af32c04d/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
   <p align="center">Minimal, light-weight Angular ratings.</p>
 </p>
@@ -123,31 +123,31 @@ Import rating theme using in the global style `style.css`
 
 ```css
 // Pure css stars (default)
-@import '~ngx-bar-rating/themes/br-default-theme';
+@import '~ngx-bar-rating/themes/br-default-theme.css';
 
 // Bootstrap stars
-@import '~ngx-bar-rating/themes/br-bootstrap-theme';
+@import '~ngx-bar-rating/themes/br-bootstrap-theme.css';
 
 // Fontawesome stars
-@import '~ngx-bar-rating/themes/br-fontawesome-theme';
+@import '~ngx-bar-rating/themes/br-fontawesome-theme.css';
 
 // Fontawesome-o stars
-@import '~ngx-bar-rating/themes/br-fontawesome-o-theme';
+@import '~ngx-bar-rating/themes/br-fontawesome-o-theme.css';
 
 // Horizontal bars
-@import '~ngx-bar-rating/themes/br-horizontal-theme';
+@import '~ngx-bar-rating/themes/br-horizontal-theme.css';
 
 // Vertical bars
-@import '~ngx-bar-rating/themes/br-vertical-theme';
+@import '~ngx-bar-rating/themes/br-vertical-theme.css';
 
 // Custom svg stars
-@import '~ngx-bar-rating/themes/br-custom-stars-theme';
+@import '~ngx-bar-rating/themes/br-custom-stars-theme.css';
 
 // Movie rating
-@import '~ngx-bar-rating/themes/br-movie-theme';
+@import '~ngx-bar-rating/themes/br-movie-theme.css';
 
 // Square rating
-@import '~ngx-bar-rating/themes/br-square-theme';
+@import '~ngx-bar-rating/themes/br-square-theme.css';
 ```
 
 Rating style can be easily customized, check the classes used in any theme and add your own css.
