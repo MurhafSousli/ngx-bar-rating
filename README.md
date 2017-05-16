@@ -77,9 +77,9 @@ In your template
 
  - **[theme]**: Theme class. default `default`, see available [themes](#themes).
 
- - **[showText]**: Display rating title if set, otherwise display rate value, default `false`.
+ - **[showText]**: Display rating title if set, otherwise display rating value, default `false`.
 
- - **[titles]**: Titles array. current rate value the title displayed each index of the array represents the rate value, default `[]`.
+ - **[titles]**: Titles array. array length should be equal to the `max` value, each index represents the rating title, default `[]`.
 
  - **[required]**: A flag indicating if rating is required for form validation. default `false`.
 
@@ -119,10 +119,16 @@ It can be used with angular forms and reactive forms, for example:
 
 ## Predefined themes
 
-Import rating theme using in the global style `style.css`
+Add the rating theme either in `index.html`
+
+```html
+<link rel="stylesheet" href="../node_modules/ngx-bar-rating/themes/br-default-theme.css"/>
+```
+
+Or in the global style `style.scss` (recommended)
 
 
- - Pure css stars (default) `[theme]="'fontawesome-o'"`
+ - Pure css stars (default) `[theme]="'default'"`
 
 ```css
 @import '~ngx-bar-rating/themes/br-default-theme'
