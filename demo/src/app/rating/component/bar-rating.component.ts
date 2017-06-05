@@ -105,10 +105,9 @@ export class BarRatingComponent implements OnInit, OnChanges, ControlValueAccess
   private updateState(nextValue) {
     /** Set rate value as text */
     this.nextRate = nextValue - 1;
-
     /** Set the rating */
     this.contexts = Array.from({ length: this.max }, (context, index) => ({
-      selected: index < nextValue,
+      selected: index + 1 <= nextValue,
       fraction: (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5,
       click: (e) => this.handleClick(e, index),
       enter: () => this.handleEnter(index)
