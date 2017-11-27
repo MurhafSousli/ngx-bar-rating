@@ -40,7 +40,7 @@ map: {
   'ngx-bar-rating': 'node_modules/ngx-bar-rating/bundles/ngx-bar-rating.umd.js',
 }
 ```
-Here is a working [plunkr](https://plnkr.co/edit/ZLSw4BV3ejRYkuWWAmoF?p=preview)
+Here is a working [plunkr](https://plnkr.co/edit/ZLSw4BV3ejRYkuWWAmoF?p=preview) | [stackblitz](https://stackblitz.com/edit/ngx-bar-rating)
 
 <a name="usage"/>
 
