@@ -1,3 +1,4 @@
+<!-- remove comment -->
 <p align="center">
   <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-bar-rating/af32c04d/assets/logo.svg">
   <h1 align="center">Angular Bar Rating</h1>
