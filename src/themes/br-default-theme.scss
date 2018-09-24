@@ -10,9 +10,12 @@ $star-utf8: '\2605';
 
   .br-unit {
     position: relative;
-    margin-right: 5px;
     font-size: 23px;
     line-height: 1;
+
+    & + .br-unit {
+      margin-left: 5px;
+    }
 
     &::before {
       content: $star-utf8;
