@@ -1,5 +1,7 @@
 @import 'variables';
 
+$star-utf8: '\2605';
+
 .br-default {
 
   .br-units {
@@ -7,24 +9,34 @@
   }
 
   .br-unit {
+    position: relative;
     margin-right: 5px;
     font-size: 23px;
-    height: 18px;
-    width: 18px;
+    line-height: 1;
 
-    &:after {
-      content: "\2605";
+    &::before {
+      content: $star-utf8;
       color: $star-default;
     }
   }
 
-  .br-selected:after {
+  .br-selected::before,
+  .br-fraction::after {
     color: $star-selected;
   }
+  
+  .br-fraction::after {
+    content: $star-utf8;
+    width: 50%;
+    width: calc(50% + 1px); // adds one so the half star can be easily seen
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
 
-  .br-active:after {
+  .br-active::before {
     color: $star-active;
   }
 
 }
-
