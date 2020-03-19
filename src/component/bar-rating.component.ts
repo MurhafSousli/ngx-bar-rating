@@ -116,9 +116,11 @@ export class BarRatingComponent implements OnInit, OnChanges, ControlValueAccess
 
   private handleClick(e, value) {
     /** (NOT TESTED) Remove 300ms click delay on touch devices */
-    e.preventDefault();
-    e.stopPropagation();
-    this.update(value + 1);
+    if (!this.disabled && !this.readOnly) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.update(value + 1);
+    }
   }
 
   private handleEnter(index) {
