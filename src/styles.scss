@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+@import '~normalize.css';
+@import '~font-awesome/css/font-awesome.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'app/themes/variables';
+@import 'app/themes/br-custom-stars-theme';
+@import 'app/themes/br-default-theme';
+@import 'app/themes/br-bootstrap-theme';
+@import 'app/themes/br-fontawesome-theme';
+@import 'app/themes/br-fontawesome-o-theme';
+@import 'app/themes/br-square-theme';
+@import 'app/themes/br-horizontal-theme';
+@import 'app/themes/br-vertical-theme';
+@import 'app/themes/br-movie-theme';
+@import 'app/themes/br-pokemon-theme';
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: $black;
+}
+
+.main {
+  margin-top: -1.4em;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background-color: #F8F8F8;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//app-root {
+//  display: block;
+//  padding-top: 100px;
+
+  .title {
+    font-size: 4em;
+  }
+
+  .description {
+    margin-top: 3em;
+    color: $gray;
+  }
+
+  h2, h3, p, h4 {
+    color: $gray;
+  }
+
+  h3 {
+    margin-bottom: 2em;
+  }
+
+  .panel {
+    border-width: 2px;
+    border-radius: 0;
+    margin-bottom: 30px;
+  }
+
+  .panel-heading {
+    padding: 14px;
+    text-align: center;
+    font-size: 1.4em;
+    border-radius: 0;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  .panel-body {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row {
+    width: 85%;
+  }
+
+  .panel-primary {
+    border-color: $blue-color;
+    .panel-heading {
+      background-color: $blue-color;
+    }
+  }
+
+  .panel-warning {
+    border-color: $star-active;
+    .panel-heading {
+      border-bottom: 1px solid transparent;
+      background-color: $star-active;
+      color: white;
+    }
+  }
+
+  .panel-success {
+    border-color: $green-color;
+    .panel-heading {
+      border-bottom: 1px solid transparent;
+      background-color: $green-color;
+      color: white;
+    }
+  }
+
+//}
