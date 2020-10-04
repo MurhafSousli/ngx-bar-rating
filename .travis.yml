@@ -3,12 +3,15 @@ dist: trusty
 
 language: node_js
 node_js:
-  - "6"
+  - "14"
 
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install --quiet -g gulp-cli
+cache:
+  directories:
+    - ./node_modules
+
+install:
   - npm install
+  - npm audit fix --force
 
-script: gulp build
+script:
+  - npm run build

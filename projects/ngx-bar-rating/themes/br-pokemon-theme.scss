@@ -1,0 +1,50 @@
+.br-pokemon {
+
+  .br-unit {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    filter: grayscale(1);
+
+    &:first-child {
+      margin-left: 0;
+      background-image: url('/src/assets/custom/007-pikachu.svg');
+    }
+
+    &:nth-child(2) {
+      background-image: url('/src/assets/custom/006-bullbasaur.svg');
+    }
+    &:nth-child(3) {
+      background-image: url('/src/assets/custom/008-charmander.svg');
+    }
+    &:nth-child(4) {
+      background-image: url('/src/assets/custom/002-venonat.svg');
+    }
+    &:nth-child(5) {
+      background-image: url('/src/assets/custom/005-jigglypuff.svg');
+    }
+    &:nth-child(6) {
+      background-image: url('/src/assets/custom/001-caterpie.svg');
+    }
+    // &:nth-child(4) {
+    //     background-image: url('/src/assets/custom/004-squirtle.svg');
+    // }
+    // &:nth-child(5) {
+    //     background-image: url('/src/assets/custom/003-bellsprout.svg');
+    // }
+  }
+
+  .br-selected, .br-active {
+    filter: grayscale(0);
+  }
+}
+
