@@ -27,20 +27,8 @@ ___
 
 Install it with npm
 
-`npm install --save ngx-bar-rating`
+`npm i ngx-bar-rating`
 
-### SystemJS
-
-If you are using SystemJS, you should also adjust your configuration to point to the UMD bundle.
-
-In your systemjs config file, map needs to tell the System loader where to look for ngx-bar-rating:
-
-```
-map: {
-  'ngx-bar-rating': 'node_modules/ngx-bar-rating/bundles/ngx-bar-rating.umd.js',
-}
-```
-Here is a working [plunkr](https://plnkr.co/edit/ZLSw4BV3ejRYkuWWAmoF?p=preview) | [stackblitz](https://stackblitz.com/edit/ngx-bar-rating)
 
 <a name="usage"/>
 

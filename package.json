@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bar-rating",
+  "name": "ngx-bar-rating-project",
   "version": "0.0.0",
   "description": "Angular Bar Rating",
   "repository": {
@@ -23,8 +23,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build-lib": "ng build --prod ngx-bar-rating",
+    "build": "ng build --prod ngx-bar-rating",
+    "postbuild": "cpx 'projects/ngx-bar-rating/themes/*.scss' ./dist/ngx-bar-rating/themes",
+    "link-lib": "npm link dist/ngx-bar-rating && npm link ngx-bar-rating",
+    "publish-lib": "npm publish dist/ngx-bar-rating",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -49,10 +51,11 @@
     "@angular-devkit/build-angular": "~0.1001.3",
     "@angular/cli": "~10.1.3",
     "@angular/compiler-cli": "~10.1.3",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cpx": "^1.5.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",

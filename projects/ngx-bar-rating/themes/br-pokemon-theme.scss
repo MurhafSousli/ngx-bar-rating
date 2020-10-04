@@ -17,29 +17,29 @@
 
     &:first-child {
       margin-left: 0;
-      background-image: url('../../assets/custom/007-pikachu.svg');
+      background-image: url('/src/assets/custom/007-pikachu.svg');
     }
 
     &:nth-child(2) {
-      background-image: url('../../assets/custom/006-bullbasaur.svg');
+      background-image: url('/src/assets/custom/006-bullbasaur.svg');
     }
     &:nth-child(3) {
-      background-image: url('../../assets/custom/008-charmander.svg');
+      background-image: url('/src/assets/custom/008-charmander.svg');
     }
     &:nth-child(4) {
-      background-image: url('../../assets/custom/002-venonat.svg');
+      background-image: url('/src/assets/custom/002-venonat.svg');
     }
     &:nth-child(5) {
-      background-image: url('../../assets/custom/005-jigglypuff.svg');
+      background-image: url('/src/assets/custom/005-jigglypuff.svg');
     }
     &:nth-child(6) {
-      background-image: url('../../assets/custom/001-caterpie.svg');
+      background-image: url('/src/assets/custom/001-caterpie.svg');
     }
     // &:nth-child(4) {
-    //     background-image: url('../../assets/custom/004-squirtle.svg');
+    //     background-image: url('/src/assets/custom/004-squirtle.svg');
     // }
     // &:nth-child(5) {
-    //     background-image: url('../../assets/custom/003-bellsprout.svg');
+    //     background-image: url('/src/assets/custom/003-bellsprout.svg');
     // }
   }
 

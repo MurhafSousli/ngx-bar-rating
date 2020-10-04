@@ -3,17 +3,17 @@
 @import '~normalize.css';
 @import '~font-awesome/css/font-awesome.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import 'app/themes/variables';
-@import 'app/themes/br-custom-stars-theme';
-@import 'app/themes/br-default-theme';
-@import 'app/themes/br-bootstrap-theme';
-@import 'app/themes/br-fontawesome-theme';
-@import 'app/themes/br-fontawesome-o-theme';
-@import 'app/themes/br-square-theme';
-@import 'app/themes/br-horizontal-theme';
-@import 'app/themes/br-vertical-theme';
-@import 'app/themes/br-movie-theme';
-@import 'app/themes/br-pokemon-theme';
+@import '../projects/ngx-bar-rating/themes/variables';
+@import '../projects/ngx-bar-rating/themes/br-custom-stars-theme';
+@import '../projects/ngx-bar-rating/themes/br-default-theme';
+@import '../projects/ngx-bar-rating/themes/br-bootstrap-theme';
+@import '../projects/ngx-bar-rating/themes/br-fontawesome-theme';
+@import '../projects/ngx-bar-rating/themes/br-fontawesome-o-theme';
+@import '../projects/ngx-bar-rating/themes/br-square-theme';
+@import '../projects/ngx-bar-rating/themes/br-horizontal-theme';
+@import '../projects/ngx-bar-rating/themes/br-vertical-theme';
+@import '../projects/ngx-bar-rating/themes/br-movie-theme';
+@import '../projects/ngx-bar-rating/themes/br-pokemon-theme';
 
 * {
   font-family: 'Poppins', sans-serif;

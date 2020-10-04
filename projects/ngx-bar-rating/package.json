@@ -1,10 +1,10 @@
 {
   "name": "ngx-bar-rating",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Angular Bar Rating",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:MurhafSousli/ngx-bar-rating.git"
+    "url": "https://github.com/MurhafSousli/ngx-bar-rating.git"
   },
   "homepage": "https://github.com/MurhafSousli/ngx-bar-rating#readme",
   "bugs": {
