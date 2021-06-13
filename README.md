@@ -54,6 +54,11 @@ In your template
 <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
 ```
 
+In your stylesheet
+```css
+@import '~ngx-bar-rating/themes/br-default-theme';
+```
+
 <a name="options"/>
 
 ## Rating options (inputs):
