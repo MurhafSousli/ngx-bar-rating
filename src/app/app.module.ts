@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-
-import { BarRatingModule } from '../../projects/ngx-bar-rating/src/public-api';
-// import { BarRatingModule } from 'ngx-bar-rating';
+import { BarRatingModule } from 'ngx-bar-rating';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar, faStarHalfAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faGithub, faGithubAlt, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,10 +24,22 @@ import { BarsComponent } from './bars/bars.component';
   imports: [
     BrowserModule,
     FormsModule,
-    BarRatingModule
+    BarRatingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faTwitter,
+      faGithub,
+      faGithubAlt,
+      faStar,
+      faStarHalfAlt,
+      farStar,
+      faTimesCircle
+    );
+  }
 }

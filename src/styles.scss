@@ -1,19 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
-@import '~normalize.css';
-@import '~font-awesome/css/font-awesome.css';
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'normalize.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 @import '../projects/ngx-bar-rating/themes/variables';
-@import '../projects/ngx-bar-rating/themes/br-custom-stars-theme';
+@import '../projects/ngx-bar-rating/themes/br-stars-theme';
 @import '../projects/ngx-bar-rating/themes/br-default-theme';
-@import '../projects/ngx-bar-rating/themes/br-bootstrap-theme';
-@import '../projects/ngx-bar-rating/themes/br-fontawesome-theme';
-@import '../projects/ngx-bar-rating/themes/br-fontawesome-o-theme';
 @import '../projects/ngx-bar-rating/themes/br-square-theme';
 @import '../projects/ngx-bar-rating/themes/br-horizontal-theme';
 @import '../projects/ngx-bar-rating/themes/br-vertical-theme';
 @import '../projects/ngx-bar-rating/themes/br-movie-theme';
-@import '../projects/ngx-bar-rating/themes/br-pokemon-theme';
+@import 'assets/br-pokemon-theme';
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -35,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1140px;
 }
 
 //app-root {
@@ -58,13 +56,13 @@ body {
     margin-bottom: 2em;
   }
 
-  .panel {
+  .card {
     border-width: 2px;
     border-radius: 0;
     margin-bottom: 30px;
   }
 
-  .panel-heading {
+  .card-heading {
     padding: 14px;
     text-align: center;
     font-size: 1.4em;
@@ -72,7 +70,7 @@ body {
     font-family: 'Poppins', sans-serif !important;
   }
 
-  .panel-body {
+  .card-body {
     height: 150px;
     display: flex;
     justify-content: center;
@@ -83,25 +81,26 @@ body {
     width: 85%;
   }
 
-  .panel-primary {
+  .card-primary {
     border-color: $blue-color;
-    .panel-heading {
+    .card-heading {
       background-color: $blue-color;
+      color: white;
     }
   }
 
-  .panel-warning {
+  .card-warning {
     border-color: $star-active;
-    .panel-heading {
+    .card-heading {
       border-bottom: 1px solid transparent;
       background-color: $star-active;
       color: white;
     }
   }
 
-  .panel-success {
+  .card-success {
     border-color: $green-color;
-    .panel-heading {
+    .card-heading {
       border-bottom: 1px solid transparent;
       background-color: $green-color;
       color: white;
