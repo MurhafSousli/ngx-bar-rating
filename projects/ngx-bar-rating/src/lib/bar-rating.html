@@ -8,15 +8,12 @@
          class="br-unit"
          (click)="unit.click($event)"
          (mouseenter)="unit.enter()">
-      <ng-template *ngIf="unit.active || unit.selected; else notActive"
-                   [ngTemplateOutlet]="customActiveRating?.template || activeTemplate"></ng-template>
-      <ng-template #notActive>
-        <ng-template *ngIf="unit.fraction; else inactive"
-                     [ngTemplateOutlet]="customFractionRating?.template || fractionTemplate"></ng-template>
-        <ng-template #inactive>
-          <ng-template [ngTemplateOutlet]="customInActiveRating?.template || inactiveTemplate"></ng-template>
-        </ng-template>
-      </ng-template>
+
+      <ng-container [ngSwitch]="unit.state">
+        <ng-template *ngSwitchCase="unitState.fraction" [ngTemplateOutlet]="customFractionRating?.template || fractionTemplate"></ng-template>
+        <ng-template *ngSwitchCase="unitState.inactive" [ngTemplateOutlet]="customInActiveRating?.template || inactiveTemplate"></ng-template>
+        <ng-template *ngSwitchDefault [ngTemplateOutlet]="customActiveRating?.template || activeTemplate"></ng-template>
+      </ng-container>
     </div>
   </div>
 

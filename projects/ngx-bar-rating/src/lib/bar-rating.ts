@@ -28,6 +28,19 @@ const RATING_VALUE_VALIDATOR = {
   multi: true,
 };
 
+enum BarRatingUnitState {
+  active = 'active',
+  inactive = 'inactive',
+  selected = 'selected',
+  fraction = 'fraction'
+}
+
+interface BarRatingContext {
+  state: BarRatingUnitState;
+  click: (e) => void;
+  enter: () => void;
+}
+
 @Component({
   selector: 'bar-rating',
   templateUrl: './bar-rating.html',
@@ -37,7 +50,8 @@ const RATING_VALUE_VALIDATOR = {
 })
 export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Validator {
 
-  contexts: { fraction: boolean, selected: boolean, active: boolean, click: (e) => void, enter: () => void }[] = [];
+  readonly unitState = BarRatingUnitState;
+  contexts: BarRatingContext[] = [];
   nextRate: number;
   disabled: boolean;
 
@@ -63,22 +77,27 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
   @Input() required = false;
 
   /**
-   * An event fired when a user is hovering over a given rating.
+   * A stream that emits when a user is hovering over a given rating.
    * Event's payload equals to the rating being hovered over.
    */
   @Output() hover = new EventEmitter<number>();
 
   /**
-   * An event fired when a user stops hovering over a given rating.
+   * A stream that emits when a user stops hovering over a given rating.
    * Event's payload equals to the rating of the last item being hovered over.
    */
   @Output() leave = new EventEmitter<number>();
 
   /**
-   * An event fired when a user selects a new rating.
+   * A stream that emits when a user selects a new rating.
    * Event's payload equals to the newly selected rating.
    */
   @Output() rateChange = new EventEmitter<number>(true);
+
+  /**
+   * A stream that forwards a bar rating click since clicks are not propagated
+   */
+  @Output() barClick = new EventEmitter<number>();
 
   @ContentChild(ActiveRating) customActiveRating: ActiveRating;
   @ContentChild(InactiveRating) customInActiveRating: InactiveRating;
@@ -94,10 +113,8 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
   }
 
   ngOnInit(): void {
-    this.contexts = Array.from({ length: this.max }, (context, i) => ({
-      selected: false,
-      fraction: false,
-      active: false,
+    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], i: number) => ({
+      state: BarRatingUnitState.inactive,
       click: (e) => this.handleClick(e, i + 1),
       enter: () => this.handleEnter(i + 1)
     }));
@@ -105,7 +122,7 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     this.updateState(this.rate);
   }
 
-  update(newRate: number, internalChange = true): void {
+  update(newRate: number, internalChange: boolean = true): void {
     if (!this.readOnly && !this.disabled && this.rate !== newRate) {
       this.rate = newRate;
       this.rateChange.emit(this.rate);
@@ -127,10 +144,12 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     /** Set rate value as text */
     this.nextRate = nextValue - 1;
     /** Set the rating */
-    this.contexts = Array.from({ length: this.max }, (context, index) => ({
-      selected: index + 1 <= nextValue,
-      fraction: (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5,
-      active: false,
+    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], index) => ({
+      state: index + 1 <= nextValue
+        ? BarRatingUnitState.selected
+        : (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5
+          ? BarRatingUnitState.fraction
+          : BarRatingUnitState.inactive,
       click: (e) => this.handleClick(e, index),
       enter: () => this.handleEnter(index)
     }));
@@ -146,10 +165,8 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
   private handleEnter(index): void {
     if (!this.disabled && !this.readOnly) {
       /** Add selected class for rating hover */
-      this.contexts.map((context, i) => {
-        context.active = i <= index;
-        context.fraction = false;
-        context.selected = false;
+      this.contexts.map((context: BarRatingContext, i: number) => {
+        context.state = i <= index ? BarRatingUnitState.active : BarRatingUnitState.inactive;
       });
       this.nextRate = index;
       this.hover.emit(index);
@@ -166,10 +183,11 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     return (this.required && !c.value) ? { required: true } : null;
   }
 
-  onChange = (_: any) => {
-  };
-  onTouched = () => {
-  };
+  onChange(_: any): void {
+  }
+
+  onTouched(): void {
+  }
 
   registerOnChange(fn: (value: any) => any): void {
     this.onChange = fn;
