@@ -14,9 +14,11 @@
 
 .br-unit {
   cursor: pointer;
-  // some tweaks
   -webkit-font-smoothing: antialiased;
   text-rendering: auto;
+}
+
+.br-unit-inner {
 }
 
 .br-selected {

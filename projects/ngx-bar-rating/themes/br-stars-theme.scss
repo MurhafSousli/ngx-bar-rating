@@ -1,9 +1,17 @@
 .br-stars {
   .br-units {
-
     align-items: center;
   }
+
   .br-unit {
+    &:first-child {
+      .br-unit-inner {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .br-unit-inner {
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -19,13 +27,9 @@
     height: 28px;
     filter: grayscale(1);
 
-    &:first-child {
-      margin-left: 0;
+    &.br-selected, &.br-active {
+      filter: grayscale(0);
     }
-  }
-
-  .br-selected, .br-active {
-    filter: grayscale(0);
   }
 }
 

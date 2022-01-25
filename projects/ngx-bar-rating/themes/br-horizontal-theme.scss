@@ -9,7 +9,7 @@
   .br-units {
   }
 
-  .br-unit {
+  .br-unit-inner {
     display: block;
     width: 12px;
     height: 32px;
@@ -25,7 +25,7 @@
   }
 
   &.br-readonly {
-    .br-unit {
+    .br-unit-inner {
       cursor: default;
 
       &.br-active,

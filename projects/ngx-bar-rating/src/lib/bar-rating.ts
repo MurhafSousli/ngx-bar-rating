@@ -6,11 +6,13 @@ import {
   OnInit,
   OnChanges,
   SimpleChanges,
+  ContentChild,
   ChangeDetectorRef,
   ChangeDetectionStrategy,
   forwardRef
 } from '@angular/core';
 import { ControlValueAccessor, Validator, NG_VALIDATORS, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { ActiveRating, FractionRating, InactiveRating } from './custom-rating';
 
 /** This allows support [(ngModel)] and ngControl. */
 const RATING_VALUE_ACCESSOR = {
@@ -77,6 +79,10 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
    * Event's payload equals to the newly selected rating.
    */
   @Output() rateChange = new EventEmitter<number>(true);
+
+  @ContentChild(ActiveRating) customActiveRating: ActiveRating;
+  @ContentChild(InactiveRating) customInActiveRating: InactiveRating;
+  @ContentChild(FractionRating) customFractionRating: FractionRating;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }

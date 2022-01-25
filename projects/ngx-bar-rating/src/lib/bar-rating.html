@@ -4,13 +4,33 @@
 
   <div class="br-units" (mouseleave)="reset()">
 
-    <div class="br-unit" *ngFor="let unit of contexts"
-         [class.br-fraction]="unit.fraction"
-         [class.br-selected]="unit.selected"
-         [class.br-active]="unit.active"
+    <div *ngFor="let unit of contexts"
+         class="br-unit"
          (click)="unit.click($event)"
-         (mouseenter)="unit.enter()"></div>
+         (mouseenter)="unit.enter()">
+      <ng-template *ngIf="unit.active || unit.selected; else notActive"
+                   [ngTemplateOutlet]="customActiveRating?.template || activeTemplate"></ng-template>
+      <ng-template #notActive>
+        <ng-template *ngIf="unit.fraction; else inactive"
+                     [ngTemplateOutlet]="customFractionRating?.template || fractionTemplate"></ng-template>
+        <ng-template #inactive>
+          <ng-template [ngTemplateOutlet]="customInActiveRating?.template || inactiveTemplate"></ng-template>
+        </ng-template>
+      </ng-template>
+    </div>
   </div>
 
   <div *ngIf="showText" class="br-text">{{ nextRate | rateTitle: titles }}</div>
 </div>
+
+<ng-template #fractionTemplate>
+  <div class="br-unit-inner br-selected"></div>
+</ng-template>
+
+<ng-template #activeTemplate>
+  <div class="br-unit-inner br-active"></div>
+</ng-template>
+
+<ng-template #inactiveTemplate>
+  <div class="br-unit-inner br-inactive"></div>
+</ng-template>

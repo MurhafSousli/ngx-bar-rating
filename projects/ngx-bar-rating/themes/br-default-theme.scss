@@ -4,17 +4,20 @@
 
   .br-units {
     align-items: center;
+    height: 32px;
   }
 
-  .br-unit {
+  .br-unit-inner {
+    position: relative;
     margin-right: 5px;
     font-size: 23px;
-    height: 18px;
+    height: 32px;
     width: 18px;
 
     &:after {
       content: "\2605";
       color: $star-default;
+      height: 100%;
     }
   }
 
