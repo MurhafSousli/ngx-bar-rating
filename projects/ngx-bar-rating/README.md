@@ -60,21 +60,21 @@ In your template
 
 ## Rating inputs and outputs:
 
-| Name             | Description                                                        | Default |
-|------------------|--------------------------------------------------------------------|---------|
-| **[rate]**       | Current rating. Can be a decimal value like 3.14                   | null    |
-| **[max]**        | Maximal rating that can be given using this widget                 | 5       |
-| **[readOnly]**   | A flag that indicates if rating can be changed                     | false   |
-| **[theme]**      | Theme class, see available [themes](#themes)                       | default |
-| **[showText]**   | Display rating title if set, otherwise display rating value        | false   |
-| **[titles]**     | Titles array. array length should be equal to the `max` value      | []      |
-| **[showText]**   | A flag that indicates if rating is required for form validation    | false   |
-| **[required]**   | A flag that indicates if rating is disabled. works only with forms | false   |
-| **[disabled]**   | A flag that indicates if rating is disabled. works only with forms | false   |
-| **(rateChange)** | A stream that emits when the rating value is changed               |         |
-| **(hover)**      | A stream that emits when the rating is hovered                     |         |
-| **(leave)**      | A stream that emits when the rating is no longer hovered           |         |
-| **(rateChange)** | A stream that emits when the rating value is changed               |         |
+| Name             | Description                                                          | Default |
+|------------------|----------------------------------------------------------------------|---------|
+| **[rate]**       | Current rating. Can be a decimal value like 3.14                     | null    |
+| **[max]**        | Maximal rating that can be given using this widget                   | 5       |
+| **[readOnly]**   | A flag that indicates if rating can be changed                       | false   |
+| **[theme]**      | Theme class, see available [themes](#themes)                         | default |
+| **[showText]**   | Display rating title if set, otherwise display rating value          | false   |
+| **[titles]**     | Titles array. array should represent all possible values including 0 | []      |
+| **[showText]**   | A flag that indicates if rating is required for form validation      | false   |
+| **[required]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
+| **[disabled]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
+| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
+| **(hover)**      | A stream that emits when the rating is hovered                       |         |
+| **(leave)**      | A stream that emits when the rating is no longer hovered             |         |
+| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 
 ### Custom rating template
 
