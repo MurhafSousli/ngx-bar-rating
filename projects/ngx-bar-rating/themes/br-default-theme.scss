@@ -1,32 +1,35 @@
-@import 'variables';
+$star-utf8: '\2605';
 
 .br-default {
+  --br-font-size: 26px;
 
   .br-units {
     align-items: center;
-    height: 32px;
   }
 
   .br-unit-inner {
-    position: relative;
-    margin-right: 5px;
-    font-size: 23px;
-    height: 32px;
-    width: 18px;
 
-    &:after {
-      content: "\2605";
-      color: $star-default;
-      height: 100%;
+    &:before {
+      content: $star-utf8;
+      color: var(--br-inactive-color);
+      width: 100%;
     }
   }
 
-  .br-selected:after {
-    color: $star-selected;
+  .br-active:before {
+    color: var(--br-active-color);
   }
 
-  .br-active:after {
-    color: $star-active;
+  .br-fraction {
+    &:after {
+      color: var(--br-active-color);
+      content: $star-utf8;
+      width: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
   }
 
 }

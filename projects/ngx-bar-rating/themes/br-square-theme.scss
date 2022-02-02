@@ -1,6 +1,5 @@
-@import 'variables';
-
 .br-square {
+  --br-active-color: #4278F5;
 
   .br-units {
     counter-reset: counter;
@@ -9,19 +8,19 @@
   .br-unit-inner {
     width: 30px;
     height: 30px;
-    border: 2px solid lighten($blue-color, 25%);
+    border: 2px solid var(--br-active-color);
     background-color: white;
     margin: 2px;
     text-decoration: none;
     font-size: 14px;
     line-height: 2;
     text-align: center;
-    color: lighten($blue-color, 25%);
+    color: var(--br-active-color);
     font-weight: 600;
+    opacity: 0.25;
 
     &.br-active {
-      border: 2px solid $blue-color;
-      color: $blue-color;
+      opacity: 1;
     }
 
     &:after {
@@ -33,12 +32,11 @@
   &.br-readonly {
 
     .br-active {
-      border: 2px solid lighten($blue-color, 10%);
-      color: lighten($blue-color, 10%);
+      opacity: 0.1;
     }
 
     .br-theme {
-      color: lighten($orange-color, 10%);
+      //color: lighten($orange-color, 10%);
     }
   }
 }

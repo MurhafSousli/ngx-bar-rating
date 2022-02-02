@@ -2,17 +2,25 @@
   box-sizing: border-box;
 }
 
+:host {
+  --br-font-size: 16px;
+  --br-gap: 0;
+  --br-active-color: #EDB867;
+  --br-inactive-color: #D2D2D2;
+}
+
 .br {
   position: relative;
-  margin: 15px 0;
 }
 
 .br-units {
   display: flex;
   flex-wrap: nowrap;
+  gap: var(--br-gap);
 }
 
 .br-unit {
+  font-size: var(--br-font-size);
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   text-rendering: auto;

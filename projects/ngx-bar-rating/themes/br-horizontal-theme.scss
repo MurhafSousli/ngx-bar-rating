@@ -1,5 +1,3 @@
-@import 'variables';
-
 .br-horizontal {
 
   display: flex;
@@ -14,12 +12,13 @@
     width: 12px;
     height: 32px;
     float: left;
-    background-color: lighten($orange-color, 25%);
+    background-color: var(--br-active-color);
     margin: 1px;
     text-align: center;
+    opacity: 0.25;
 
     &.br-active {
-      background-color: $orange-color;
+      opacity: 1;
     }
   }
 
@@ -28,15 +27,15 @@
       cursor: default;
 
       &.br-active {
-        background-color: lighten($orange-color, 10%);
+        opacity: 0.1;
       }
     }
-
   }
+
   .br-text {
     width: 20px;
     margin-left: 20px;
     font-size: 18px;
-    color: $orange-color;
+    color: var(--br-active-color);
   }
 }

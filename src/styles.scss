@@ -3,7 +3,6 @@
 @import 'normalize.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
-@import '../projects/ngx-bar-rating/themes/variables';
 @import '../projects/ngx-bar-rating/themes/br-stars-theme';
 @import '../projects/ngx-bar-rating/themes/br-default-theme';
 @import '../projects/ngx-bar-rating/themes/br-square-theme';
@@ -11,6 +10,13 @@
 @import '../projects/ngx-bar-rating/themes/br-vertical-theme';
 @import '../projects/ngx-bar-rating/themes/br-movie-theme';
 @import 'assets/br-pokemon-theme';
+
+$orange-color: #EDB867;
+$green-color: #50E3C2;
+$blue-color: #4278F5;
+
+$black: #252627;
+$gray: #757575;
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -35,76 +41,73 @@ body {
   max-width: 1140px;
 }
 
-//app-root {
-//  display: block;
-//  padding-top: 100px;
+.title {
+  font-size: 4em;
+}
 
-  .title {
-    font-size: 4em;
-  }
+.description {
+  margin-top: 3em;
+  color: $gray;
+}
 
-  .description {
-    margin-top: 3em;
-    color: $gray;
-  }
+h2, h3, p, h4 {
+  color: $gray;
+}
 
-  h2, h3, p, h4 {
-    color: $gray;
-  }
+h3 {
+  margin-bottom: 2em;
+}
 
-  h3 {
-    margin-bottom: 2em;
-  }
+.card {
+  border-width: 2px;
+  border-radius: 0;
+  margin-bottom: 30px;
+}
 
-  .card {
-    border-width: 2px;
-    border-radius: 0;
-    margin-bottom: 30px;
-  }
+.card-heading {
+  padding: 14px;
+  text-align: center;
+  font-size: 1.4em;
+  border-radius: 0;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.card-body {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  width: 85%;
+}
+
+.card-primary {
+  border-color: $blue-color;
 
   .card-heading {
-    padding: 14px;
-    text-align: center;
-    font-size: 1.4em;
-    border-radius: 0;
-    font-family: 'Poppins', sans-serif !important;
+    background-color: $blue-color;
+    color: white;
   }
+}
 
-  .card-body {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-warning {
+  border-color: $orange-color;
+
+  .card-heading {
+    border-bottom: 1px solid transparent;
+    background-color: $orange-color;
+    color: white;
   }
+}
 
-  .row {
-    width: 85%;
+.card-success {
+  border-color: $green-color;
+
+  .card-heading {
+    border-bottom: 1px solid transparent;
+    background-color: $green-color;
+    color: white;
   }
-
-  .card-primary {
-    border-color: $blue-color;
-    .card-heading {
-      background-color: $blue-color;
-      color: white;
-    }
-  }
-
-  .card-warning {
-    border-color: $star-active;
-    .card-heading {
-      border-bottom: 1px solid transparent;
-      background-color: $star-active;
-      color: white;
-    }
-  }
-
-  .card-success {
-    border-color: $green-color;
-    .card-heading {
-      border-bottom: 1px solid transparent;
-      background-color: $green-color;
-      color: white;
-    }
-  }
-
-//}
+}
