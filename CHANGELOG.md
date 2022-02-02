@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.0.0
+
+ - Upgrade to Angular 13, closes [#74](https://github.com/MurhafSousli/ngx-bar-rating/issues/74).
+ - feat: Add custom bar rating directive.
+ - feat: Add CSS variables to customize the stars.
+ - fix: Show rating title if rating value is `null` or `0`, closes [#19](https://github.com/MurhafSousli/ngx-bar-rating/issues/19) in [d55fcc3](https://github.com/MurhafSousli/ngx-bar-rating/pull/76/commits/d55fcc3bd30b0078bf5d66853d25f398cee0f56f).
+ - fix: Allow click event propagation, closes [#29](https://github.com/MurhafSousli/ngx-bar-rating/issues/29) in [3737458](https://github.com/MurhafSousli/ngx-bar-rating/pull/76/commits/3737458429b5979517d014c45647618e73825283).
+ - Update demo with latest FontAwesome and Bootstrap.
+
+### Breaking changes
+
+ - Remove FontAwesome CSS themes, use custom directives instead.
+ - Remove Bootstrap CSS themes, use custom directives instead.
+ - When passing `[titles]` array, the first index will represent `null` or `0` value
+
 ## 2.0.0
 
  - Upgrade to Angular 10, closes [#53](https://github.com/MurhafSousli/ngx-bar-rating/issues/53).
