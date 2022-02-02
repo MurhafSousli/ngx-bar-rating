@@ -53,7 +53,6 @@ import { BarRatingModule } from "ngx-bar-rating";
 In your template
 
 ```html
-
 <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
 ```
 
@@ -90,7 +89,6 @@ Here are some example:
 #### FontAwesome rating example
 
 ```html
-
 <bar-rating [(rate)]="rate" [max]="5">
   <ng-template ratingActive>
     <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
@@ -104,7 +102,6 @@ Here are some example:
 #### Bootstrap rating example
 
 ```html
-
 <bar-rating [rate]="rate" (rateChange)="onFaoRate($event)" [max]="10">
   <ng-template ratingInactive>
     <fa-icon [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
@@ -121,7 +118,6 @@ Here are some example:
 #### Movie rating example
 
 ```html
-
 <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
             [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
 ```
@@ -129,7 +125,6 @@ Here are some example:
 It can be used with Angular forms:
 
 ```html
-
 <form #form="ngForm">
   <bar-rating name="rating" [(ngModel)]="formRating" [max]="4" required disabled></bar-rating>
 </form>
@@ -140,13 +135,19 @@ It can be used with Angular forms:
 And reactive forms:
 
 ```html
-
 <form [formGroup]="ratingForm">
   <bar-rating formControlName="rate" [max]="4" required disabled></bar-rating>
 </form>
 <p>form is valid: {{ form.valid ? 'true' : 'false' }}</p>
 <pre>{{ formRating }}</pre>
 ```
+
+## CSS variables
+
+- `--br-font-size` Sets the size of the star.
+- `--br-gap` Sets the gap between the stars.
+- `--br-active-color` Sets active color.
+- `--br-inactive-color` Sets inactive color.
 
 <a name="themes"/>
 
