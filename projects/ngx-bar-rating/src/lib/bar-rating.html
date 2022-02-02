@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div *ngIf="showText" class="br-text">{{ nextRate | rateTitle: titles }}</div>
+  <div *ngIf="showText" class="br-text">{{ nextRate + 1 | rateTitle: titles }}</div>
 </div>
 
 <ng-template #fractionTemplate>
