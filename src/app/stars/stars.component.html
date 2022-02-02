@@ -4,35 +4,44 @@
 
     <div class="col-md-4">
       <section>
-        <bar-rating [(rate)]="cssRate" [max]="5"></bar-rating>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="cssRate" [max]="5" (rateChange)="test()"></bar-rating>
+        </div>
+        <p></p>
         <p>CSS Stars</p>
       </section>
     </div>
 
     <div class="col-md-4">
       <section>
-        <bar-rating [(rate)]="bootRate" [max]="5">
-          <ng-template ratingActive>
-            <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
-          </ng-template>
-          <ng-template ratingInactive>
-            <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
-          </ng-template>
-        </bar-rating>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="bootRate" [max]="5">
+            <ng-template ratingActive>
+              <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+            </ng-template>
+            <ng-template ratingInactive>
+              <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
+            </ng-template>
+          </bar-rating>
+        </div>
+        <p></p>
         <p>Bootstrap</p>
       </section>
     </div>
 
     <div class="col-md-4">
       <section>
-        <bar-rating [(rate)]="faRate" [max]="5">
-          <ng-template ratingActive>
-            <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #edb867"></fa-icon>
-          </ng-template>
-          <ng-template ratingInactive>
-            <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
-          </ng-template>
-        </bar-rating>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="faRate" [max]="5">
+            <ng-template ratingActive>
+              <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #edb867"></fa-icon>
+            </ng-template>
+            <ng-template ratingInactive>
+              <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
+            </ng-template>
+          </bar-rating>
+        </div>
+        <p></p>
         <p>Fontawesome</p>
       </section>
     </div>
@@ -52,6 +61,8 @@
         <fa-icon [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
       </ng-template>
     </bar-rating>
+
+    <p></p>
 
     <p *ngIf="!faoRated">Current rating: {{faoRate}}</p>
     <p *ngIf="faoRated">Your rating: {{faoRate}}
