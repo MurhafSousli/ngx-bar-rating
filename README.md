@@ -50,7 +50,13 @@ import { BarRatingModule } from "ngx-bar-rating";
 })
 ```
 
-In your template
+Import the theme (unless you want to use custom template)
+
+```scss
+@import '~ngx-bar-rating/themes/br-default-theme';
+```
+
+Add the rating in your template
 
 ```html
 <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
@@ -160,7 +166,7 @@ If you want to use one of the predefined themes, you will need to import it in t
 - Pure CSS stars (default) `[theme]="'default'"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-default-theme'
+@import '~ngx-bar-rating/themes/br-default-theme';
 ```
 
 - Horizontal bars `[theme]="'horizontal'"`
