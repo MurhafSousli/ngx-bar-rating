@@ -18,8 +18,7 @@
     margin: 1px;
     text-align: center;
 
-    &.br-active,
-    &.br-selected {
+    &.br-active {
       background-color: $orange-color;
     }
   }
@@ -28,8 +27,7 @@
     .br-unit-inner {
       cursor: default;
 
-      &.br-active,
-      &.br-selected {
+      &.br-active {
         background-color: lighten($orange-color, 10%);
       }
     }

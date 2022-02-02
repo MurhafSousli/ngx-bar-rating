@@ -14,15 +14,14 @@
     background-color: lighten($blue-color, 25%);
     margin: 1px;
 
-    &.br-active,
-    &.br-selected {
+    &.br-active {
       background-color: $blue-color;
     }
   }
 
   &.br-readonly {
 
-    .br-active, .br-selected {
+    .br-active {
       background-color: lighten($blue-color, 10%);
     }
   }

@@ -27,7 +27,7 @@
     height: 28px;
     filter: grayscale(1);
 
-    &.br-selected, &.br-active {
+    &.br-active {
       filter: grayscale(0);
     }
   }

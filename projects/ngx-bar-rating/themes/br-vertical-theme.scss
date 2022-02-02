@@ -19,16 +19,14 @@
     background-color: lighten($orange-color, 25%);
     margin-top: 1px;
 
-    &.br-active,
-    &.br-selected {
+    &.br-active {
       background-color: $orange-color;
     }
   }
 
   &.br-readonly {
 
-    .br-active,
-    .br-selected {
+    .br-active {
       border: 2px solid lighten($blue-color, 10%);
       color: lighten($blue-color, 10%);
     }
