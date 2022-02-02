@@ -115,7 +115,7 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
   ngOnInit(): void {
     this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], i: number) => ({
       state: BarRatingUnitState.inactive,
-      click: (e) => this.handleClick(e, i + 1),
+      click: () => this.handleClick(i + 1),
       enter: () => this.handleEnter(i + 1)
     }));
 
@@ -144,21 +144,18 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     /** Set rate value as text */
     this.nextRate = nextValue - 1;
     /** Set the rating */
-    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], index) => ({
+    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], index: number) => ({
       state: index + 1 <= nextValue
         ? BarRatingUnitState.selected
         : (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5
           ? BarRatingUnitState.fraction
           : BarRatingUnitState.inactive,
-      click: (e) => this.handleClick(e, index),
+      click: () => this.handleClick(index),
       enter: () => this.handleEnter(index)
     }));
   }
 
-  private handleClick(e, value): void {
-    /** (NOT TESTED) Remove 300ms click delay on touch devices */
-    e.preventDefault();
-    e.stopPropagation();
+  private handleClick(value: number): void {
     this.update(value + 1);
   }
 
