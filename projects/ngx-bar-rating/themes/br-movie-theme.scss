@@ -1,5 +1,6 @@
 .br-movie {
   --br-active-color: #4278F5;
+  --br-gap: 2px;
 
   .br-units {
     margin: 15px 0;
@@ -11,7 +12,6 @@
     height: 8px;
     float: left;
     background-color: var(--br-active-color);
-    margin: 1px;
     opacity: 0.25;
 
     &.br-active {
@@ -29,7 +29,6 @@
     letter-spacing: 2px;
     font-size: 16px;
     clear: both;
-    width: 240px;
     text-align: center;
     font-weight: 600;
     display: block;
