@@ -12,15 +12,17 @@
 
 ___
 
-## Table of Contents 
- 
- - [Live Demo](https://MurhafSousli.github.io/ngx-bar-rating)
- - [Installation](#installation)
- - [Usage](#usage) 
- - [Options](#options)
- - [Themes](#themes)
- - [Issues](#issues) 
- - [Author](#author)
+If you like this plugin, please give it a star ⭐.
+
+## Table of Contents
+
+- [Live Demo](https://MurhafSousli.github.io/ngx-bar-rating)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Options](#options)
+- [Themes](#themes)
+- [Issues](#issues)
+- [Author](#author)
 
 <a name="installation"/>
 
@@ -48,7 +50,13 @@ import { BarRatingModule } from "ngx-bar-rating";
 })
 ```
 
-In your template
+Import the theme (unless you want to use custom template)
+
+```scss
+@import '~ngx-bar-rating/themes/br-default-theme';
+```
+
+Add the rating in your template
 
 ```html
 <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
@@ -56,45 +64,71 @@ In your template
 
 <a name="options"/>
 
-## Rating options (inputs):
+## Rating inputs and outputs:
 
- - **[rate]**: Current rating. Can be a decimal value like 3.14, default `undefined`.
+| Name             | Description                                                          | Default |
+|------------------|----------------------------------------------------------------------|---------|
+| **[rate]**       | Current rating. Can be a decimal value like 3.14                     | null    |
+| **[max]**        | Maximal rating that can be given using this widget                   | 5       |
+| **[readOnly]**   | A flag that indicates if rating can be changed                       | false   |
+| **[theme]**      | Theme class, see available [themes](#themes)                         | default |
+| **[showText]**   | Display rating title if set, otherwise display rating value          | false   |
+| **[titles]**     | Titles array. array should represent all possible values including 0 | []      |
+| **[showText]**   | A flag that indicates if rating is required for form validation      | false   |
+| **[required]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
+| **[disabled]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
+| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
+| **(hover)**      | A stream that emits when the rating is hovered                       |         |
+| **(leave)**      | A stream that emits when the rating is no longer hovered             |         |
+| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 
- - **[max]**: Maximal rating that can be given using this widget, default `5`
+### Custom rating template
 
- - **[readOnly]**: A flag indicating if rating can be updated, default `false`
+The module provides a couple of directives to set custom rating template of your choice.
 
- - **[theme]**: Theme class. default `default`, see available [themes](#themes).
+- `[ratingActive]`: Set template, when a bar/star is active or hovered.
+- `[ratingInactive]`: Set template, when a bar/star is inactive.
+- `[ratingFraction]`: Set template, when a bar/star is a fraction.
 
- - **[showText]**: Display rating title if set, otherwise display rating value, default `false`.
+Here are some example:
 
- - **[titles]**: Titles array. array length should be equal to the `max` value, each index represents the rating title, default `[]`.
+#### FontAwesome rating example
 
- - **[required]**: A flag indicating if rating is required for form validation. default `false`.
+```html
+<bar-rating [(rate)]="rate" [max]="5">
+  <ng-template ratingActive>
+    <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+  </ng-template>
+  <ng-template ratingInactive>
+    <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
+  </ng-template>
+</bar-rating>
+```
 
- - **[disabled]**: A flag indicating if rating is disabled. works only with forms, default `false`.
+#### Bootstrap rating example
 
- - **(rateChange)**: An event fired when a user selects a new rating.
-
-   *Event's payload equals to the newly selected rating.*
-
- - **(hover)**: An event fired when a user is hovering over a given rating.
-
-   *Event's payload equals to the rating being hovered over.*
-
- - **(leave)**: An event fired when a user stops hovering over a given rating.
-
-   *Event's payload equals to the rating of the last item being hovered over.*
-
+```html
+<bar-rating [rate]="rate" (rateChange)="onFaoRate($event)" [max]="10">
+  <ng-template ratingInactive>
+    <fa-icon [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
+  </ng-template>
+  <ng-template ratingActive>
+    <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
+  </ng-template>
+  <ng-template ratingFraction>
+    <fa-icon [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
+  </ng-template>
+</bar-rating>
+```
 
 #### Movie rating example
 
 ```html
 <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
- [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
+            [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
 ```
 
-It can be used with angular forms and reactive forms, for example:
+It can be used with Angular forms:
 
 ```html
 <form #form="ngForm">
@@ -104,67 +138,62 @@ It can be used with angular forms and reactive forms, for example:
 <pre>{{ formRating }}</pre>
 ```
 
+And reactive forms:
+
+```html
+<form [formGroup]="ratingForm">
+  <bar-rating formControlName="rate" [max]="4" required disabled></bar-rating>
+</form>
+<p>form is valid: {{ form.valid ? 'true' : 'false' }}</p>
+<pre>{{ formRating }}</pre>
+```
+
+## CSS variables
+
+- `--br-font-size` Sets the size of the star.
+- `--br-gap` Sets the gap between the stars.
+- `--br-active-color` Sets active color.
+- `--br-inactive-color` Sets inactive color.
+
 <a name="themes"/>
 
 ## Predefined themes
 
-Add the rating theme either in `index.html`
+> If you want to use a custom rating template, you don't need to import any CSS theme.
 
-```html
-<link rel="stylesheet" href="../node_modules/ngx-bar-rating/themes/br-default-theme.css"/>
-```
+If you want to use one of the predefined themes, you will need to import it in the global style `style.scss`
 
-Or in the global style `style.scss` (recommended)
-
-
- - Pure css stars (default) `[theme]="'default'"`
+- Pure CSS stars (default) `[theme]="'default'"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-default-theme'
+@import '~ngx-bar-rating/themes/br-default-theme';
 ```
 
- - Bootstrap stars `[theme]="'bootstrap'"`
-
-```css
-@import '~ngx-bar-rating/themes/br-bootstrap-theme';
-```
-
-- Fontawesome stars `[theme]="'fontawesome'"`
-
-```css
-@import '~ngx-bar-rating/themes/br-fontawesome-theme';
-```
-
- - Fontawesome-o stars `[theme]="'fontawesome-o'"`
-
-```css
-@import '~ngx-bar-rating/themes/br-fontawesome-o-theme';
-```
-
- - Horizontal bars `[theme]="'horizontal'"`
+- Horizontal bars `[theme]="'horizontal'"`
 
 ```css
 @import '~ngx-bar-rating/themes/br-horizontal-theme';
 ```
 
- - Vertical bars `[theme]="'vertical'"`
+- Vertical bars `[theme]="'vertical'"`
 
 ```css
 @import '~ngx-bar-rating/themes/br-vertical-theme';
 ```
 
- - Custom stars `[theme]="'stars'"`
+- Custom stars `[theme]="'stars'"`
 
 ```css
 @import '~ngx-bar-rating/themes/br-stars-theme';
 ```
 
- - Movie rating `[theme]="'movie'"`
+- Movie rating `[theme]="'movie'"`
+
 ```css
 @import '~ngx-bar-rating/themes/br-movie-theme';
 ```
 
- - Square rating `[theme]="'square'"`
+- Square rating `[theme]="'square'"`
 
 ```css
 @import '~ngx-bar-rating/themes/br-square-theme';
@@ -174,17 +203,16 @@ Rating style can be easily customized, check the classes used in any theme and a
 
 You can also do the same for forms classes such as `untouched, touched, dirty, invalid, valid ...etc`
 
-*If you have a nice rating style you would like to share, prupose your theme and I will include it in the package.*
-
-
 ## Issues
 
-If you identify any errors in this component, or have an idea for an improvement, please open an [issue](https://github.com/MurhafSousli/ngx-bar-rating/issues). I am excited to see what the community thinks of this project, and I would love your input!
+If you identify any errors in this component, or have an idea for an improvement, please open
+an [issue](https://github.com/MurhafSousli/ngx-bar-rating/issues). I am excited to see what the community thinks of this
+project, and I would love your input!
 
 ## Author
 
- **Murhaf Sousli**
+**Murhaf Sousli**
 
- - [github/murhafsousli](https://github.com/MurhafSousli)
- - [twitter/murhafsousli](https://twitter.com/MurhafSousli)
+- [github/murhafsousli](https://github.com/MurhafSousli)
+- [twitter/murhafsousli](https://twitter.com/MurhafSousli)
 

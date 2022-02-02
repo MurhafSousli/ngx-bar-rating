@@ -1,25 +1,74 @@
 <div class="container">
+
+<!--  <svg class="hidden">-->
+<!--    <symbol id="star" width="32" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--      <path-->
+<!--        d="M31.77 11.857H19.74L15.99.5l-3.782 11.357H0l9.885 6.903-3.692 11.21 9.736-7.05 9.796 6.962-3.722-11.18 9.766-6.845z"-->
+<!--        fill="currentColor"/>-->
+<!--    </symbol>-->
+<!--  </svg>-->
+
+<!--  <div class="position-relative d-block mt-5">-->
+<!--    <div class="text-black-50 d-inline-flex space-x-1">-->
+<!--      <svg viewBox="0 0 32 30" style="width: 20px; height: 20px;" class="w-8 h-8">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30" style="width: 20px; height: 20px;"  class="w-8 h-8">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30"  style="width: 20px; height: 20px;" class="w-8 h-8">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30"  style="width: 20px; height: 20px;" class="w-8 h-8">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30" style="width: 20px; height: 20px;"  class="w-8 h-8">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--    </div>-->
+<!--    <div class="overflow-hidden position-absolute left-0 top-0 text-yellow-400 d-flex space-x-1"-->
+<!--         style="flex:1;width: 72%; left: 0; top: 0; color: #ffdd00; margin-left: 0.25rem;">-->
+<!--      <svg viewBox="0 0 32 30"  style="width: 20px; height: 20px;" class="w-8 h-8 flex-shrink-0">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30" style="width: 20px; height: 20px;"  class="w-8 h-8 flex-shrink-0	">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30" style="width: 20px; height: 20px;"  class="w-8 h-8 flex-shrink-0	">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30"  style="width: 20px; height: 20px;" class="w-8 h-8 flex-shrink-0	">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--      <svg viewBox="0 0 32 30"  style="width: 20px; height: 20px;" class="w-8 h-8 flex-shrink-0	">-->
+<!--        <use xlink:href="#star"></use>-->
+<!--      </svg>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
   <div class="row">
     <div class="col-md-6">
 
-      <div class="panel panel-warning">
-        <div class="panel-heading">Horizontal Rating</div>
-        <div class="panel-body">
+      <div class="card card-warning">
+        <div class="card-heading">Horizontal Rating</div>
+        <div class="card-body">
           <bar-rating [(rate)]="horiRate" [max]="10" [theme]="'horizontal'" [showText]="true"></bar-rating>
         </div>
       </div>
 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Square Rating</div>
-        <div class="panel-body">
+      <div class="card card-primary">
+        <div class="card-heading">Square Rating</div>
+        <div class="card-body">
           <bar-rating [(rate)]="squareRate" [max]="5" [theme]="'square'"></bar-rating>
         </div>
       </div>
 
-      <div class="panel panel-success">
-        <div class="panel-heading">Custom Rating</div>
-        <div class="panel-body">
-          <bar-rating [(rate)]="customRate" [max]="6" [theme]="'pokemon'"></bar-rating>
+      <div class="card card-success">
+        <div class="card-heading">Custom Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="customRate" [max]="6" [theme]="'pokemon'">
+          </bar-rating>
         </div>
       </div>
 
@@ -27,32 +76,27 @@
 
     <div class="col-md-6">
 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Movie Rating</div>
-        <div class="panel-body">
-
+      <div class="card card-primary">
+        <div class="card-heading">Movie Rating</div>
+        <div class="card-body">
           <bar-rating name="rating" [(rate)]="movieRate" [max]="4" [theme]="'movie'" [showText]="true"
-                      [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"  disabled></bar-rating>
-
+                      [titles]="['No Rating', 'Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
         </div>
       </div>
 
-      <div class="panel panel-success">
-        <div class="panel-heading">Star Rating</div>
-        <div class="panel-body">
-          <bar-rating [(rate)]="starRate" [max]="5" [theme]="'custom'"></bar-rating>
+      <div class="card card-success">
+        <div class="card-heading">Star Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="starRate" [max]="5" [theme]="'stars'"></bar-rating>
         </div>
       </div>
 
-      <div class="panel panel-warning">
-        <div class="panel-heading">Vertical Rating</div>
-        <div class="panel-body">
+      <div class="card card-warning">
+        <div class="card-heading">Vertical Rating</div>
+        <div class="card-body">
           <bar-rating [(rate)]="vertRate" [max]="10" [theme]="'vertical'" [showText]="true"></bar-rating>
         </div>
       </div>
-
     </div>
-
   </div>
-
 </div>

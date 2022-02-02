@@ -1,6 +1,6 @@
 {
   "name": "ngx-bar-rating",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Angular Bar Rating",
   "repository": {
     "type": "git",
@@ -21,10 +21,11 @@
   "author": "Murhaf Sousli <murhafsousi@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^10.1.3",
-    "@angular/core": "^10.1.3"
+    "@angular/common": ">=13.0.0",
+    "@angular/core": ">=13.0.0",
+    "rxjs": ">=6.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.1"
   }
 }

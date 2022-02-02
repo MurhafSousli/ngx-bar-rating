@@ -17,9 +17,8 @@
     ],
     "paths": {
       "ngx-bar-rating": [
-        "dist/ngx-bar-rating/ngx-bar-rating",
-        "dist/ngx-bar-rating"
-      ]
+        "projects/ngx-bar-rating/src/public-api"
+      ],
     }
   }
 }

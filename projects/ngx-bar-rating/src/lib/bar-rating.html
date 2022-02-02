@@ -1,16 +1,33 @@
-<div class="br br-{{theme}}"
+<div class="br br-{{ customInActiveRating ? '' : theme }}"
      [class.br-readonly]="readOnly"
      [class.br-disabled]="disabled">
 
   <div class="br-units" (mouseleave)="reset()">
 
-    <div class="br-unit" *ngFor="let unit of contexts"
-         [class.br-fraction]="unit.fraction"
-         [class.br-selected]="unit.selected"
-         [class.br-active]="unit.active"
+    <div *ngFor="let unit of contexts"
+         class="br-unit"
          (click)="unit.click($event)"
-         (mouseenter)="unit.enter()"></div>
+         (mouseenter)="unit.enter()">
+
+      <ng-container [ngSwitch]="unit.state">
+        <ng-template *ngSwitchCase="unitState.fraction" [ngTemplateOutlet]="customFractionRating?.template || fractionTemplate"></ng-template>
+        <ng-template *ngSwitchCase="unitState.inactive" [ngTemplateOutlet]="customInActiveRating?.template || inactiveTemplate"></ng-template>
+        <ng-template *ngSwitchDefault [ngTemplateOutlet]="customActiveRating?.template || activeTemplate"></ng-template>
+      </ng-container>
+    </div>
   </div>
 
-  <div *ngIf="showText" class="br-text">{{ nextRate | rateTitle: titles }}</div>
+  <div *ngIf="showText" class="br-text">{{ nextRate + 1 | rateTitle: titles }}</div>
 </div>
+
+<ng-template #fractionTemplate>
+  <div class="br-unit-inner br-fraction"></div>
+</ng-template>
+
+<ng-template #activeTemplate>
+  <div class="br-unit-inner br-active"></div>
+</ng-template>
+
+<ng-template #inactiveTemplate>
+  <div class="br-unit-inner br-inactive"></div>
+</ng-template>
