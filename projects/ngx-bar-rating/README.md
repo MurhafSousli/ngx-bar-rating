@@ -92,7 +92,7 @@ The module provides a couple of directives to set custom rating template of your
 
 Here are some example:
 
-#### FontAwesome rating example
+#### Bootstrap rating example
 
 ```html
 <bar-rating [(rate)]="rate" [max]="5">
@@ -105,7 +105,7 @@ Here are some example:
 </bar-rating>
 ```
 
-#### Bootstrap rating example
+#### FontAwesome rating example
 
 ```html
 <bar-rating [rate]="rate" (rateChange)="onFaoRate($event)" [max]="10">
