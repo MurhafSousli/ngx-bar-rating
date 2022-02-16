@@ -80,7 +80,6 @@ Add the rating in your template
 | **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 | **(hover)**      | A stream that emits when the rating is hovered                       |         |
 | **(leave)**      | A stream that emits when the rating is no longer hovered             |         |
-| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 
 ### Custom rating template
 
