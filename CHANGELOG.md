@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0
+ 
+ - Update to Angular 14 in []().
+
 ## 3.0.0
 
  - Upgrade to Angular 13, closes [#74](https://github.com/MurhafSousli/ngx-bar-rating/issues/74).
