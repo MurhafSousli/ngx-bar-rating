@@ -2,7 +2,7 @@
 
 ## 4.0.0
  
- - Update to Angular 14 in []().
+ - Update to Angular 14 in [313d97e](https://github.com/MurhafSousli/ngx-bar-rating/pull/85/commits/313d97e14db4ce957ab35f0ad31980a5f1e6ef26).
 
 ## 3.0.0
 
