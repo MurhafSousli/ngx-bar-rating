@@ -11,7 +11,7 @@ import {
   ChangeDetectionStrategy,
   forwardRef
 } from '@angular/core';
-import { ControlValueAccessor, Validator, NG_VALIDATORS, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { ControlValueAccessor, Validator, NG_VALIDATORS, NG_VALUE_ACCESSOR, UntypedFormControl } from '@angular/forms';
 import { ActiveRating, FractionRating, InactiveRating } from './custom-rating';
 
 /** This allows support [(ngModel)] and ngControl. */
@@ -176,7 +176,7 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     this.changeDetectorRef.markForCheck();
   }
 
-  validate(c: FormControl): { required: boolean } | null {
+  validate(c: UntypedFormControl): { required: boolean } | null {
     return (this.required && !c.value) ? { required: true } : null;
   }
 
