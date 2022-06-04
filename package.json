@@ -25,7 +25,6 @@
     "start": "ng serve",
     "build-demo": "ng build --configuration production",
     "build": "ng build --configuration production ngx-bar-rating",
-    "postbuild": "cpx 'projects/ngx-bar-rating/themes/*.scss' ./dist/ngx-bar-rating/themes",
     "publish-lib": "npm publish dist/ngx-bar-rating",
     "test": "ng test",
     "lint": "ng lint",
