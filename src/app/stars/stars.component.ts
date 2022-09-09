@@ -11,6 +11,8 @@ export class StarsComponent {
   faRate = 1;
   cssRate = 1.6;
   faoRate = 5.6;
+  faRateWithMax = 5;
+  faMaxRate = 5;
   faoRated = false;
 
   onFaoRate(e) {

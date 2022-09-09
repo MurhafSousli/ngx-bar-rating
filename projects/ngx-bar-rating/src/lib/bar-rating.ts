@@ -4,14 +4,18 @@ import {
   Output,
   EventEmitter,
   OnInit,
-  OnChanges,
-  SimpleChanges,
   ContentChild,
   ChangeDetectorRef,
   ChangeDetectionStrategy,
   forwardRef
 } from '@angular/core';
-import { ControlValueAccessor, Validator, NG_VALIDATORS, NG_VALUE_ACCESSOR, UntypedFormControl } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  Validator,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  UntypedFormControl
+} from '@angular/forms';
 import { ActiveRating, FractionRating, InactiveRating } from './custom-rating';
 
 /** This allows support [(ngModel)] and ngControl. */
@@ -37,7 +41,7 @@ enum BarRatingUnitState {
 
 interface BarRatingContext {
   state: BarRatingUnitState;
-  click: (e) => void;
+  click: (event: MouseEvent) => void;
   enter: () => void;
 }
 
@@ -48,29 +52,53 @@ interface BarRatingContext {
   providers: [RATING_VALUE_ACCESSOR, RATING_VALUE_VALIDATOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Validator {
+export class BarRating implements OnInit, ControlValueAccessor, Validator {
 
   readonly unitState = BarRatingUnitState;
   contexts: BarRatingContext[] = [];
   nextRate: number;
   disabled: boolean;
 
-  /** Current rating. Can be a decimal value like 3.14 */
-  @Input() rate;
+  /** Current rating. Can be a decimal value like 3.14. */
+  @Input()
+  get rate(): number {
+    return this._rate;
+  }
+  set rate(value: number) {
+    if (this._rate !== value) {
+      this._rate = value;
+      this.update(this.rate);
+    }
+  }
+  private _rate: number;
 
   /** Maximal rating that can be given using this widget. */
-  @Input() max = 5;
+  @Input()
+  get max(): number {
+    return this._max;
+  }
+  set max(value: number) {
+    if (this._max !== value) {
+      this._max = value;
+      if (this.rate > value) {
+        this.update(value);
+      } else {
+        this.update(this.rate);
+      }
+    }
+  }
+  private _max = 5;
 
   /** A flag indicating if rating can be updated. */
   @Input() readOnly = false;
 
-  /** Set the theme */
+  /** Set the theme. */
   @Input() theme = 'default';
 
-  /** Show rating title */
+  /** Show rating title. */
   @Input() showText = false;
 
-  /** Replace rate value with a title */
+  /** Replace rate value with a title. */
   @Input() titles = [];
 
   /** A flag indicating if rating is required for form validation. */
@@ -80,45 +108,30 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
    * A stream that emits when a user is hovering over a given rating.
    * Event's payload equals to the rating being hovered over.
    */
-  @Output() hover = new EventEmitter<number>();
+  @Output() readonly hover = new EventEmitter<number>();
 
   /**
    * A stream that emits when a user stops hovering over a given rating.
    * Event's payload equals to the rating of the last item being hovered over.
    */
-  @Output() leave = new EventEmitter<number>();
+  @Output() readonly leave = new EventEmitter<number>();
 
   /**
    * A stream that emits when a user selects a new rating.
    * Event's payload equals to the newly selected rating.
    */
-  @Output() rateChange = new EventEmitter<number>(true);
+  @Output() readonly rateChange = new EventEmitter<number>(true);
 
-  /**
-   * A stream that forwards a bar rating click since clicks are not propagated
-   */
-  @Output() barClick = new EventEmitter<number>();
+  /** A stream that forwards a bar rating click since clicks are not propagated. */
+  @Output() readonly barClick = new EventEmitter<number>();
 
   @ContentChild(ActiveRating) customActiveRating: ActiveRating;
   @ContentChild(InactiveRating) customInActiveRating: InactiveRating;
   @ContentChild(FractionRating) customFractionRating: FractionRating;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.rate) {
-      this.update(this.rate);
-    }
-  }
+  constructor(private readonly changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], i: number) => ({
-      state: BarRatingUnitState.inactive,
-      click: () => this.handleClick(i + 1),
-      enter: () => this.handleEnter(i + 1)
-    }));
-
     this.updateState(this.rate);
   }
 
@@ -140,10 +153,10 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     this.updateState(this.rate);
   }
 
-  private updateState(nextValue): void {
-    /** Set rate value as text */
+  private updateState(nextValue: number): void {
+    // Set rate value as text
     this.nextRate = nextValue - 1;
-    /** Set the rating */
+    // Set the rating
     this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], index: number) => ({
       state: index + 1 <= nextValue
         ? BarRatingUnitState.selected
@@ -159,9 +172,9 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     this.update(value + 1);
   }
 
-  private handleEnter(index): void {
+  private handleEnter(index: number): void {
     if (!this.disabled && !this.readOnly) {
-      /** Add selected class for rating hover */
+      // Add selected class for rating hover
       this.contexts.map((context: BarRatingContext, i: number) => {
         context.state = i <= index ? BarRatingUnitState.active : BarRatingUnitState.inactive;
       });
@@ -170,7 +183,7 @@ export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Valid
     }
   }
 
-  /** This is the initial value set to the component */
+  /** This is the initial value set to the component. */
   writeValue(value: number): void {
     this.update(value, false);
     this.changeDetectorRef.markForCheck();

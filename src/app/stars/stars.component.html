@@ -1,51 +1,52 @@
 <div class="stars container">
-  <h3>A few flavours of star ratings compatible with popular libraries</h3>
-  <div class="row">
+  <section>
+    <h3>A few flavours of star ratings compatible with popular libraries</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <section>
+          <div class="star-wrapper">
+            <bar-rating [(rate)]="cssRate" [max]="5" (rateChange)="test()"></bar-rating>
+          </div>
+          <p></p>
+          <p>CSS Stars</p>
+        </section>
+      </div>
 
-    <div class="col-md-4">
-      <section>
-        <div class="star-wrapper">
-          <bar-rating [(rate)]="cssRate" [max]="5" (rateChange)="test()"></bar-rating>
-        </div>
-        <p></p>
-        <p>CSS Stars</p>
-      </section>
-    </div>
+      <div class="col-md-4">
+        <section>
+          <div class="star-wrapper">
+            <bar-rating [(rate)]="bootRate" [max]="5">
+              <ng-template ratingActive>
+                <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+              </ng-template>
+              <ng-template ratingInactive>
+                <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
+              </ng-template>
+            </bar-rating>
+          </div>
+          <p></p>
+          <p>Bootstrap</p>
+        </section>
+      </div>
 
-    <div class="col-md-4">
-      <section>
-        <div class="star-wrapper">
-          <bar-rating [(rate)]="bootRate" [max]="5">
-            <ng-template ratingActive>
-              <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
-            </ng-template>
-            <ng-template ratingInactive>
-              <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
-            </ng-template>
-          </bar-rating>
-        </div>
-        <p></p>
-        <p>Bootstrap</p>
-      </section>
+      <div class="col-md-4">
+        <section>
+          <div class="star-wrapper">
+            <bar-rating [(rate)]="faRate" [max]="5">
+              <ng-template ratingActive>
+                <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #edb867"></fa-icon>
+              </ng-template>
+              <ng-template ratingInactive>
+                <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
+              </ng-template>
+            </bar-rating>
+          </div>
+          <p></p>
+          <p>Fontawesome</p>
+        </section>
+      </div>
     </div>
-
-    <div class="col-md-4">
-      <section>
-        <div class="star-wrapper">
-          <bar-rating [(rate)]="faRate" [max]="5">
-            <ng-template ratingActive>
-              <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #edb867"></fa-icon>
-            </ng-template>
-            <ng-template ratingInactive>
-              <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
-            </ng-template>
-          </bar-rating>
-        </div>
-        <p></p>
-        <p>Fontawesome</p>
-      </section>
-    </div>
-  </div>
+  </section>
 
 
   <section>
@@ -68,5 +69,24 @@
     <p *ngIf="faoRated">Your rating: {{faoRate}}
       <fa-icon class="link" [icon]="['fas', 'times-circle']" size="lg" (click)="faoReset()"></fa-icon>
     </p>
+  </section>
+
+
+  <section>
+    <h3>You also can change max rate dynamically.</h3>
+    <bar-rating [(rate)]="faRateWithMax" [max]="faMaxRate">
+      <ng-template ratingActive>
+        <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #edb867"></fa-icon>
+      </ng-template>
+      <ng-template ratingInactive>
+        <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
+      </ng-template>
+    </bar-rating>
+    <p></p>
+    <p>
+      Max:
+      <input type="number" [(ngModel)]="faMaxRate" name="faMaxRate" placeholder="Max" />
+    </p>
+    <p *ngIf="!faoRated">Rate: {{faRateWithMax}}</p>
   </section>
 </div>
