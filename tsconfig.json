@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2018",
@@ -18,7 +18,8 @@
     "paths": {
       "ngx-bar-rating": [
         "projects/ngx-bar-rating/src/public-api"
-      ],
-    }
+      ]
+    },
+    "useDefineForClassFields": false
   }
 }
