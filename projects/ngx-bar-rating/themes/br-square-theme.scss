@@ -1,13 +1,16 @@
 .br-square {
   --br-active-color: #4278F5;
+  --br-font-size: 30px;
+  --br-width: var(--br-font-size);
+  --br-height: var(--br-font-size);
 
   .br-units {
     counter-reset: counter;
   }
 
   .br-unit-inner {
-    width: 30px;
-    height: 30px;
+    width: var(--br-width);
+    height: var(--br-height);
     border: 2px solid var(--br-active-color);
     background-color: white;
     margin: 2px;
