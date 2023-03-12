@@ -149,7 +149,9 @@ And reactive forms:
 
 ## CSS variables
 
-- `--br-font-size` Sets the size of the star.
+- `--br-font-size` Sets the size of the step for the following themes: [`default`, `square`, `stars`].
+- `--br-width` Sets the width of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
+- `--br-height` Sets the height of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
 - `--br-gap` Sets the gap between the stars.
 - `--br-active-color` Sets active color.
 - `--br-inactive-color` Sets inactive color.

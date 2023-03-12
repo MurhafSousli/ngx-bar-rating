@@ -1,4 +1,6 @@
 .br-vertical {
+  --br-width: 120px;
+  --br-height: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +13,8 @@
 
   .br-unit-inner {
     display: block;
-    width: 120px;
-    height: 5px;
+    width: var(--br-width);
+    height: var(--br-height);
     background-color: var(--br-active-color);
     margin-top: 1px;
     opacity: 0.25;

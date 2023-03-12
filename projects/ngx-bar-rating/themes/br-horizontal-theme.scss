@@ -1,4 +1,6 @@
 .br-horizontal {
+  --br-width: 12px;
+  --br-height: 32px;
 
   display: flex;
   justify-content: center;
@@ -9,8 +11,8 @@
 
   .br-unit-inner {
     display: block;
-    width: 12px;
-    height: 32px;
+    width: var(--br-width);
+    height: var(--br-height);
     float: left;
     background-color: var(--br-active-color);
     margin: 1px;

@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+ - Update to Angular 15, in [2f09704](https://github.com/MurhafSousli/ngx-bar-rating/pull/104/commits/2f0970415c799f28d89f1b074e86bca8c34f49c5).
+ - Add `--br-width` and `--br-height` CSS variables to change the size of the steps for all themes except for the `default` theme, in [ba49836](https://github.com/MurhafSousli/ngx-bar-rating/pull/104/commits/ba49836d421f143b6f335f58272af2d858df62a9).
+ - The CSS variable `--br-font-size` changes the size of the steps in `stars` and `square` themes, in [ba49836](https://github.com/MurhafSousli/ngx-bar-rating/pull/104/commits/ba49836d421f143b6f335f58272af2d858df62a9).
+
 ## 4.0.1
  
  - Update to Angular 14 in [313d97e](https://github.com/MurhafSousli/ngx-bar-rating/pull/85/commits/313d97e14db4ce957ab35f0ad31980a5f1e6ef26).

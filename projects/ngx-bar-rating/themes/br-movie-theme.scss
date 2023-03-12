@@ -1,6 +1,8 @@
 .br-movie {
   --br-active-color: #4278F5;
   --br-gap: 2px;
+  --br-width: 60px;
+  --br-height: 8px;
 
   .br-units {
     margin: 15px 0;
@@ -8,8 +10,8 @@
 
   .br-unit-inner {
     display: block;
-    width: 60px;
-    height: 8px;
+    width: var(--br-width);
+    height: var(--br-height);
     float: left;
     background-color: var(--br-active-color);
     opacity: 0.25;

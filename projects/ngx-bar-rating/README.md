@@ -80,7 +80,6 @@ Add the rating in your template
 | **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 | **(hover)**      | A stream that emits when the rating is hovered                       |         |
 | **(leave)**      | A stream that emits when the rating is no longer hovered             |         |
-| **(rateChange)** | A stream that emits when the rating value is changed                 |         |
 
 ### Custom rating template
 
@@ -150,7 +149,9 @@ And reactive forms:
 
 ## CSS variables
 
-- `--br-font-size` Sets the size of the star.
+- `--br-font-size` Sets the size of the step for the following themes: [`default`, `square`, `stars`].
+- `--br-width` Sets the width of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
+- `--br-height` Sets the height of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
 - `--br-gap` Sets the gap between the stars.
 - `--br-active-color` Sets active color.
 - `--br-inactive-color` Sets inactive color.
