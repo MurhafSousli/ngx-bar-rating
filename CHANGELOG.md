@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.0
+
+ - Update to Angular 16.
+
 ## 5.0.0
 
  - Update to Angular 15, in [2f09704](https://github.com/MurhafSousli/ngx-bar-rating/pull/104/commits/2f0970415c799f28d89f1b074e86bca8c34f49c5).
