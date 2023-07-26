@@ -84,9 +84,9 @@ Add the rating in your template
 
 The module provides a couple of directives to set custom rating template of your choice.
 
-- `[ratingActive]`: Set template, when a bar/star is active or hovered.
-- `[ratingInactive]`: Set template, when a bar/star is inactive.
-- `[ratingFraction]`: Set template, when a bar/star is a fraction.
+- `*ratingActive`: Set template, when a bar/star is active or hovered.
+- `*ratingInactive`: Set template, when a bar/star is inactive.
+- `*ratingFraction`: Set template, when a bar/star is a fraction.
 
 Here are some example:
 
@@ -94,12 +94,8 @@ Here are some example:
 
 ```html
 <bar-rating [(rate)]="rate" [max]="5">
-  <ng-template ratingActive>
-    <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
-  </ng-template>
-  <ng-template ratingInactive>
-    <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
-  </ng-template>
+  <i *ratingActive class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+  <i *ratingInactive class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
 </bar-rating>
 ```
 
@@ -107,15 +103,9 @@ Here are some example:
 
 ```html
 <bar-rating [rate]="rate" (rateChange)="onFaoRate($event)" [max]="10">
-  <ng-template ratingInactive>
-    <fa-icon [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
-  </ng-template>
-  <ng-template ratingActive>
-    <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
-  </ng-template>
-  <ng-template ratingFraction>
-    <fa-icon [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
-  </ng-template>
+  <fa-icon *ratingInactive [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
+  <fa-icon *ratingActive [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
+  <fa-icon *ratingFraction [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
 </bar-rating>
 ```
 
