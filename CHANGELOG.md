@@ -1,5 +1,19 @@
 # Changelog
 
+## 7.0.0
+
+- Upgrade to Angular 18.
+- Upgrade to standalone components.
+- Remove `rxjs` dependency.
+- feat: Ability to use boolean inputs as attributes, such as `<ng-bar-rating showText readonly/>`.
+- fix: `(rateChange)` is automatically called when page is loaded, closes [#90](https://github.com/MurhafSousli/ngx-bar-rating/issues/90).
+- fix: `untouched`, `touched`, `dirty` classes when used as form controls.
+
+### Breaking Changes
+
+- Rename `[readOnly]` input to `[readonly]`.
+- Remove `(hover)` and `(leave)` outputs.
+
 ## 6.0.0
 
  - Update to Angular 16.

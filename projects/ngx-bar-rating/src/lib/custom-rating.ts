@@ -1,6 +1,7 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
+  standalone: true,
   selector: '[ratingActive]'
 })
 export class ActiveRating {
@@ -9,6 +10,7 @@ export class ActiveRating {
 }
 
 @Directive({
+  standalone: true,
   selector: '[ratingInactive]'
 })
 export class InactiveRating {
@@ -17,6 +19,7 @@ export class InactiveRating {
 }
 
 @Directive({
+  standalone: true,
   selector: '[ratingFraction]'
 })
 export class FractionRating {
