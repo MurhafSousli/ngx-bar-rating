@@ -1,28 +1,36 @@
 import {
   Component,
-  Input,
   Output,
+  signal,
+  computed,
+  forwardRef,
+  numberAttribute,
+  booleanAttribute,
+  input,
+  model,
+  contentChild,
   EventEmitter,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  ContentChild,
-  ChangeDetectorRef,
-  ChangeDetectionStrategy,
-  forwardRef
+  Signal,
+  Provider,
+  InputSignal,
+  ModelSignal,
+  WritableSignal,
+  InputSignalWithTransform,
+  ChangeDetectionStrategy
 } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { ControlValueAccessor, Validator, NG_VALIDATORS, NG_VALUE_ACCESSOR, UntypedFormControl } from '@angular/forms';
 import { ActiveRating, FractionRating, InactiveRating } from './custom-rating';
 
 /** This allows support [(ngModel)] and ngControl. */
-const RATING_VALUE_ACCESSOR = {
+const RATING_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => BarRating),
   multi: true
 };
 
 /** This allows control required validation. */
-const RATING_VALUE_VALIDATOR = {
+const RATING_VALUE_VALIDATOR: Provider = {
   provide: NG_VALIDATORS,
   useExisting: forwardRef(() => BarRating),
   multi: true,
@@ -35,167 +43,121 @@ enum BarRatingUnitState {
   fraction = 'fraction'
 }
 
-interface BarRatingContext {
-  state: BarRatingUnitState;
-  click: (e) => void;
-  enter: () => void;
-}
-
 @Component({
+  standalone: true,
   selector: 'bar-rating',
   templateUrl: './bar-rating.html',
-  styleUrls: ['./bar-rating.scss'],
+  styleUrl: './bar-rating.scss',
   providers: [RATING_VALUE_ACCESSOR, RATING_VALUE_VALIDATOR],
+  imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BarRating implements OnInit, OnChanges, ControlValueAccessor, Validator {
+export class BarRating implements ControlValueAccessor, Validator {
 
-  readonly unitState = BarRatingUnitState;
-  contexts: BarRatingContext[] = [];
-  nextRate: number;
+  onChange: OnChangeFn<number> = () => {
+  };
+
+  onTouched: OnTouchedFn = () => {
+  };
+
+  readonly UNITS = BarRatingUnitState;
+
   disabled: boolean;
 
   /** Current rating. Can be a decimal value like 3.14 */
-  @Input() rate;
+  rate: ModelSignal<number> = model<number>(5);
 
   /** Maximal rating that can be given using this widget. */
-  @Input() max = 5;
+  max: InputSignalWithTransform<number, number | string> = input<number, string | number>(5, { transform: numberAttribute });
 
   /** A flag indicating if rating can be updated. */
-  @Input() readOnly = false;
+  readOnly: InputSignalWithTransform<boolean, string | boolean> = input<boolean, string | boolean>(false, {
+    transform: booleanAttribute,
+    alias: 'readonly'
+  });
 
   /** Set the theme */
-  @Input() theme = 'default';
+  theme: InputSignal<string> = input<string>('default');
 
   /** Show rating title */
-  @Input() showText = false;
+  showText: InputSignalWithTransform<boolean, string | boolean> = input<boolean, string | boolean>(false, { transform: booleanAttribute });
 
   /** Replace rate value with a title */
-  @Input() titles = [];
+  titles: InputSignal<string[]> = input<string[]>([]);
 
   /** A flag indicating if rating is required for form validation. */
-  @Input() required = false;
+  required: InputSignalWithTransform<boolean, string | boolean> = input<boolean, string | boolean>(false, { transform: booleanAttribute });
 
-  /**
-   * A stream that emits when a user is hovering over a given rating.
-   * Event's payload equals to the rating being hovered over.
-   */
-  @Output() hover = new EventEmitter<number>();
+  tabIndex: InputSignalWithTransform<number, number | string> = input<number, string | number>(0, { transform: numberAttribute });
 
-  /**
-   * A stream that emits when a user stops hovering over a given rating.
-   * Event's payload equals to the rating of the last item being hovered over.
-   */
-  @Output() leave = new EventEmitter<number>();
+  hoveredIndex: WritableSignal<number> = signal(null);
 
-  /**
-   * A stream that emits when a user selects a new rating.
-   * Event's payload equals to the newly selected rating.
-   */
-  @Output() rateChange = new EventEmitter<number>(true);
+  contexts: Signal<BarRatingUnitState[]> = computed(() => {
+    if (this.hoveredIndex()) {
+      return Array.from({ length: this.max() }, (c, i: number) => {
+        if (this.hoveredIndex()) {
+          if (i + 1 <= this.hoveredIndex()) {
+            return BarRatingUnitState.active;
+          }
+          return BarRatingUnitState.inactive;
+        }
+      });
+    }
+    return Array.from({ length: this.max() }, (c, i: number) => {
+      if (i + 1 <= this.rate()) {
+        return BarRatingUnitState.selected;
+      }
+      if ((i + 1 === Math.round(this.rate()) && this.rate() % 1) >= 0.5) {
+        return BarRatingUnitState.fraction;
+      }
+      return BarRatingUnitState.inactive;
+    });
+  });
+
+  ratingText: Signal<string | number> = computed(() => {
+    const value: string | number = this.hoveredIndex() || this.rate();
+    return this.titles()[value] || value;
+  });
 
   /**
    * A stream that forwards a bar rating click since clicks are not propagated
    */
-  @Output() barClick = new EventEmitter<number>();
+  @Output() barClick: EventEmitter<number> = new EventEmitter<number>();
 
-  @ContentChild(ActiveRating) customActiveRating: ActiveRating;
-  @ContentChild(InactiveRating) customInActiveRating: InactiveRating;
-  @ContentChild(FractionRating) customFractionRating: FractionRating;
+  customActiveRating: Signal<ActiveRating> = contentChild(ActiveRating);
+  customInActiveRating: Signal<InactiveRating> = contentChild(InactiveRating);
+  customFractionRating: Signal<FractionRating> = contentChild(FractionRating);
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  updateRating(value: number): void {
+    this.rate.set(value);
+    this.onChange(value);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.rate) {
-      this.update(this.rate);
-    }
-  }
-
-  ngOnInit(): void {
-    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], i: number) => ({
-      state: BarRatingUnitState.inactive,
-      click: () => this.handleClick(i + 1),
-      enter: () => this.handleEnter(i + 1)
-    }));
-
-    this.updateState(this.rate);
-  }
-
-  update(newRate: number, internalChange: boolean = true): void {
-    if (!this.readOnly && !this.disabled && this.rate !== newRate) {
-      this.rate = newRate;
-      this.rateChange.emit(this.rate);
-    }
-    if (internalChange) {
-      this.onChange(this.rate);
-      this.onTouched();
-    }
-    this.updateState(this.rate);
-  }
-
-  /** Reset rate value */
-  reset(): void {
-    this.leave.emit(this.nextRate);
-    this.updateState(this.rate);
-  }
-
-  private updateState(nextValue): void {
-    /** Set rate value as text */
-    this.nextRate = nextValue - 1;
-    /** Set the rating */
-    this.contexts = Array.from({ length: this.max }, (context: BarRatingContext[], index: number) => ({
-      state: index + 1 <= nextValue
-        ? BarRatingUnitState.selected
-        : (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5
-          ? BarRatingUnitState.fraction
-          : BarRatingUnitState.inactive,
-      click: () => this.handleClick(index),
-      enter: () => this.handleEnter(index)
-    }));
-  }
-
-  private handleClick(value: number): void {
-    this.update(value + 1);
-  }
-
-  private handleEnter(index): void {
-    if (!this.disabled && !this.readOnly) {
-      /** Add selected class for rating hover */
-      this.contexts.map((context: BarRatingContext, i: number) => {
-        context.state = i <= index ? BarRatingUnitState.active : BarRatingUnitState.inactive;
-      });
-      this.nextRate = index;
-      this.hover.emit(index);
-    }
-  }
-
-  /** This is the initial value set to the component */
+  /**
+   * This is the initial value set to the component
+   */
   writeValue(value: number): void {
-    this.update(value, false);
-    this.changeDetectorRef.markForCheck();
+    if (value !== null) {
+      this.rate.set(value);
+    }
   }
 
   validate(c: UntypedFormControl): { required: boolean } | null {
     return (this.required && !c.value) ? { required: true } : null;
   }
 
-  onChange(_: any): void {
-  }
-
-  onTouched(): void {
-  }
-
-  registerOnChange(fn: (value: any) => any): void {
+  registerOnChange(fn: OnChangeFn<number>): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => any): void {
+  registerOnTouched(fn: () => OnTouchedFn): void {
     this.onTouched = fn;
   }
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-
 }
+
+type OnChangeFn<T> = (value: T) => void;
+type OnTouchedFn = () => void;

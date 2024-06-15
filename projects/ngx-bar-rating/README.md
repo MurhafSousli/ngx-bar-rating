@@ -4,7 +4,7 @@
   <p align="center">Minimal, light-weight Angular ratings.</p>
 </p>
 
-[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-bar-rating)
+[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://ngx-bar-rating.netlify.app/)
 [![npm](https://img.shields.io/badge/stackblitz-online-orange.svg)](https://stackblitz.com/edit/ngx-bar-rating)
 [![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://www.npmjs.com/package/ngx-bar-rating)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
@@ -15,7 +15,7 @@ If you like this plugin, please give it a star ⭐.
 
 ## Table of Contents
 
-- [Live Demo](https://MurhafSousli.github.io/ngx-bar-rating)
+- [Live Demo](https://ngx-bar-rating.netlify.app/)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Options](#options)
@@ -29,36 +29,36 @@ If you like this plugin, please give it a star ⭐.
 
 Install it with npm
 
-`npm i ngx-bar-rating`
+```bash
+npm i ngx-bar-rating
+```
 
 
 <a name="usage"/>
 
 ## Basic usage:
 
-Import `BarRatingModule` in the root module
+Import `BarRating` or `BarRatingModule` in your component imports.
 
 ```ts
-import { BarRatingModule } from "ngx-bar-rating";
-
-@NgModule({
-  imports: [
-    // ...
-    BarRatingModule
-  ]
+@Component({
+  standalone: true,
+  selector: 'bars',
+  template: `
+    <bar-rating [(rate)]="rate"/>
+  `,
+  styleUrl: './example.component.scss',
+  imports: [BarRating]
 })
+export class BarsComponent {
+  rate: number = 4;
+}
 ```
 
-Import the theme (unless you want to use custom template)
+Import the theme in your global styles (unless you want to use custom template)
 
 ```scss
-@import '~ngx-bar-rating/themes/br-default-theme';
-```
-
-Add the rating in your template
-
-```html
-<bar-rating [(rate)]="rate" [max]="5"></bar-rating>
+@import 'ngx-bar-rating/themes/br-default-theme';
 ```
 
 <a name="options"/>
@@ -69,61 +69,48 @@ Add the rating in your template
 |------------------|----------------------------------------------------------------------|---------|
 | **[rate]**       | Current rating. Can be a decimal value like 3.14                     | null    |
 | **[max]**        | Maximal rating that can be given using this widget                   | 5       |
-| **[readOnly]**   | A flag that indicates if rating can be changed                       | false   |
 | **[theme]**      | Theme class, see available [themes](#themes)                         | default |
-| **[showText]**   | Display rating title if set, otherwise display rating value          | false   |
-| **[titles]**     | Titles array. array should represent all possible values including 0 | []      |
-| **[showText]**   | A flag that indicates if rating is required for form validation      | false   |
+| **[readonly]**   | A flag that indicates if rating can be changed                       | false   |
+| **[showText]**   | Display rating title if available, otherwise display rating value    | false   |
 | **[required]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
 | **[disabled]**   | A flag that indicates if rating is disabled. works only with forms   | false   |
+| **[titles]**     | Titles array. array should represent all possible values including 0 | []      |
 | **(rateChange)** | A stream that emits when the rating value is changed                 |         |
-| **(hover)**      | A stream that emits when the rating is hovered                       |         |
-| **(leave)**      | A stream that emits when the rating is no longer hovered             |         |
 
 ### Custom rating template
 
-The module provides a couple of directives to set custom rating template of your choice.
+`BarRatingModule` provides a couple of directives to set custom rating template of your choice.
 
-- `[ratingActive]`: Set template, when a bar/star is active or hovered.
-- `[ratingInactive]`: Set template, when a bar/star is inactive.
-- `[ratingFraction]`: Set template, when a bar/star is a fraction.
+- `*ratingActive`: Set template, when a bar/star is active or hovered.
+- `*ratingInactive`: Set template, when a bar/star is inactive.
+- `*ratingFraction`: Set template, when a bar/star is a fraction.
 
 Here are some example:
 
 #### Bootstrap rating example
 
 ```html
-<bar-rating [(rate)]="rate" [max]="5">
-  <ng-template ratingActive>
-    <i class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
-  </ng-template>
-  <ng-template ratingInactive>
-    <i class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
-  </ng-template>
+<bar-rating [(rate)]="rate" max="5">
+  <i *ratingActive class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+  <i *ratingInactive class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
 </bar-rating>
 ```
 
 #### FontAwesome rating example
 
 ```html
-<bar-rating [rate]="rate" (rateChange)="onFaoRate($event)" [max]="10">
-  <ng-template ratingInactive>
-    <fa-icon [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"></fa-icon>
-  </ng-template>
-  <ng-template ratingActive>
-    <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
-  </ng-template>
-  <ng-template ratingFraction>
-    <fa-icon [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"></fa-icon>
-  </ng-template>
+<bar-rating [(rate)]="rate" max="10">
+  <fa-icon *ratingInactive [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2"/>
+  <fa-icon *ratingActive [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2"/>
+  <fa-icon *ratingFraction [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg" style="color: #50e3c2"/>
 </bar-rating>
 ```
 
 #### Movie rating example
 
 ```html
-<bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
-            [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
+<bar-rating [(rate)]="rate" max="4" theme="movie" showText
+            [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"/>
 ```
 
 It can be used with Angular forms:
@@ -163,51 +150,55 @@ And reactive forms:
 
 If you want to use one of the predefined themes, you will need to import it in the global style `style.scss`
 
-- Pure CSS stars (default) `[theme]="'default'"`
+- Pure CSS stars (default) `theme="default"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-default-theme';
+@import 'ngx-bar-rating/themes/br-default-theme';
 ```
 
-- Horizontal bars `[theme]="'horizontal'"`
+- Horizontal bars `theme="horizontal"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-horizontal-theme';
+@import 'ngx-bar-rating/themes/br-horizontal-theme';
 ```
 
-- Vertical bars `[theme]="'vertical'"`
+- Vertical bars `theme="vertical"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-vertical-theme';
+@import 'ngx-bar-rating/themes/br-vertical-theme';
 ```
 
-- Custom stars `[theme]="'stars'"`
+- Custom stars `theme="stars"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-stars-theme';
+@import 'ngx-bar-rating/themes/br-stars-theme';
 ```
 
-- Movie rating `[theme]="'movie'"`
+- Movie rating `theme="movie"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-movie-theme';
+@import 'ngx-bar-rating/themes/br-movie-theme';
 ```
 
-- Square rating `[theme]="'square'"`
+- Square rating `theme="square"`
 
 ```css
-@import '~ngx-bar-rating/themes/br-square-theme';
+@import 'ngx-bar-rating/themes/br-square-theme';
 ```
 
 Rating style can be easily customized, check the classes used in any theme and add your own css.
 
 You can also do the same for forms classes such as `untouched, touched, dirty, invalid, valid ...etc`
 
+<a name="issues"/>
+
 ## Issues
 
 If you identify any errors in this component, or have an idea for an improvement, please open
 an [issue](https://github.com/MurhafSousli/ngx-bar-rating/issues). I am excited to see what the community thinks of this
 project, and I would love your input!
+
+<a name="author"/>
 
 ## Author
 

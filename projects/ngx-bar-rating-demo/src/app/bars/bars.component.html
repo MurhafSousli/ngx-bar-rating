@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card card-warning">
+        <div class="card-heading">Horizontal Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="horiRate" max="10" theme="horizontal" showText="true"/>
+        </div>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-heading">Square Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="squareRate" max="5" theme="square"/>
+        </div>
+      </div>
+
+      <div class="card card-success">
+        <div class="card-heading">Custom Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="customRate" max="6" theme="pokemon"/>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card card-primary">
+        <div class="card-heading">Movie Rating</div>
+        <div class="card-body">
+          <bar-rating name="rating"
+                      showText
+                      max="4"
+                      theme="movie"
+                      [(rate)]="movieRate"
+                      [titles]="['No Rating', 'Bad', 'Mediocre' , 'Good', 'Awesome']"/>
+        </div>
+      </div>
+
+      <div class="card card-success">
+        <div class="card-heading">Star Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="starRate" max="5" theme="stars"/>
+        </div>
+      </div>
+
+      <div class="card card-warning">
+        <div class="card-heading">Vertical Rating</div>
+        <div class="card-body">
+          <bar-rating [(rate)]="vertRate" max="10" theme="vertical" showText="true"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="stars container">
+  <h3>A few flavours of star ratings compatible with popular libraries</h3>
+  <div class="row">
+
+    <div class="col-md-4">
+      <section>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="cssRate" [max]="5" (rateChange)="test()"/>
+        </div>
+        <p></p>
+        <p>CSS Stars</p>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="bootRate" [max]="5">
+            <i *ratingActive class="bi bi-star-fill" style="margin: 2px; color: #edb867"></i>
+            <i *ratingInactive class="bi bi-star-fill" style="margin: 2px; color: #d2d2d2"></i>
+          </bar-rating>
+        </div>
+        <p></p>
+        <p>Bootstrap</p>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section>
+        <div class="star-wrapper">
+          <bar-rating [(rate)]="faRate" [max]="5">
+            <fa-icon *ratingActive [icon]="['fas', 'star']" fixedWidth size="lg" style="color: #edb867"/>
+            <fa-icon *ratingInactive [icon]="['fas', 'star']" fixedWidth size="lg" style="color: #d2d2d2"/>
+          </bar-rating>
+        </div>
+        <p></p>
+        <p>Fontawesome</p>
+      </section>
+    </div>
+  </div>
+
+
+  <section>
+    <h3>It can be used to display fractional star ratings.</h3>
+    <bar-rating [rate]="faoRate" (rateChange)="onFaoRate($event)" [max]="10">
+      <fa-icon *ratingActive [icon]="['fas', 'star']" fixedWidth size="lg" style="color: #50e3c2"/>
+      <fa-icon *ratingInactive [icon]="['far', 'star']" fixedWidth size="lg" style="color: #d2d2d2"/>
+      <fa-icon *ratingFraction [icon]="['fas', 'star-half-alt']" fixedWidth size="lg" style="color: #50e3c2"/>
+    </bar-rating>
+
+    <p></p>
+
+    @if (faoRated) {
+      <p>Your rating: {{ faoRate }}
+        <fa-icon class="link" [icon]="['fas', 'times-circle']" size="lg" (click)="faoReset()"></fa-icon>
+      </p>
+    } @else {
+      <p>Current rating: {{ faoRate }}</p>
+    }
+  </section>
+</div>
