@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.0.1
+
+- fix: readonly attribute is not working in v7.0.0, closes [#111](https://github.com/MurhafSousli/ngx-bar-rating/issues/111).
+
 ## 7.0.0
 
 - Upgrade to Angular 18.

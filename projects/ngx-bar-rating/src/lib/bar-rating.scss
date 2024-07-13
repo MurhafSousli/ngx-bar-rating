@@ -33,5 +33,6 @@
 .br-readonly, .br-disabled {
   .br-unit {
     cursor: default;
+    pointer-events: none;
   }
 }
