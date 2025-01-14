@@ -1,15 +1,19 @@
 <div class="br br-{{ customInActiveRating() ? '' : theme() }}"
-     [class.br-readonly]="readOnly()"
+     [class.br-readonly]="readonly()"
      [class.br-disabled]="disabled"
-     [attr.tabindex]="disabled || readOnly() ? -1 : tabIndex()"
-     (focusout)="onTouched()">
+     role="button"
+     [attr.tabindex]="disabled || readonly() ? -1 : tabIndex()"
+     (focusout)="onTouched()"
+     (click)="handleClick($event)"
+     (keydown)="handleKeydown($event)">
 
   <div class="br-units"
        (mouseleave)="hoveredIndex.set(0)">
     @for (unit of contexts(); let i = $index; track i) {
+      @let value = i + 1;
       <div class="br-unit"
-           (click)="updateRating(i + 1); barClick.emit(i + 1)"
-           (mouseenter)="hoveredIndex.set(i + 1)">
+           [attr.data-value]="value"
+           (mouseenter)="hoveredIndex.set(value)">
         @switch (unit) {
           @case (UNITS.fraction) {
             <ng-template [ngTemplateOutlet]="customFractionRating()?.template || fractionTemplate"/>

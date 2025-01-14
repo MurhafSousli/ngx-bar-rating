@@ -1,16 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
-@import 'normalize.css';
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
-@import '../../ngx-bar-rating/themes/br-stars-theme';
-@import '../../ngx-bar-rating/themes/br-default-theme';
-@import '../../ngx-bar-rating/themes/br-square-theme';
-@import '../../ngx-bar-rating/themes/br-horizontal-theme';
-@import '../../ngx-bar-rating/themes/br-vertical-theme';
-@import '../../ngx-bar-rating/themes/br-movie-theme';
-@import '../../ngx-bar-rating-demo/public/br-pokemon-theme';
+@use '../../ngx-bar-rating/themes/br-stars-theme';
+@use '../../ngx-bar-rating/themes/br-default-theme';
+@use '../../ngx-bar-rating/themes/br-square-theme';
+@use '../../ngx-bar-rating/themes/br-horizontal-theme';
+@use '../../ngx-bar-rating/themes/br-vertical-theme';
+@use '../../ngx-bar-rating/themes/br-movie-theme';
+@use '../../ngx-bar-rating-demo/public/br-pokemon-theme';
 
 $orange-color: #EDB867;
 $green-color: #50E3C2;
@@ -70,7 +64,7 @@ h3 {
   text-align: center;
   font-size: 1.4em;
   border-radius: 0;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Poppins', sans-serif;
 }
 
 .card-body {

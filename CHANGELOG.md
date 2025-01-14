@@ -1,5 +1,16 @@
 # Changelog
 
+## 8.0.0
+
+- Upgrade to Angular 19.
+- Add unit tests.
+- feat: Add `provideBarRatingOptions` to override the default options.
+- feat: Add accessibility support such as focus and keys listeners to increase/decrease the rating.
+- feat: Ability to override CSS variables from `:root` selector.
+- feat: Add `effect` directive that adds click scale-fade effect.
+- feat: Add CSS variable `--br-effect-scale`, `--br-effect-duration` and `--br-effect-ease` to customize the effect.
+- fix: When used as a form control, the required validator is always true, closes [#116](https://github.com/MurhafSousli/ngx-bar-rating/issues/116). 
+
 ## 7.0.1
 
 - fix: readonly attribute is not working in v7.0.0, closes [#111](https://github.com/MurhafSousli/ngx-bar-rating/issues/111).

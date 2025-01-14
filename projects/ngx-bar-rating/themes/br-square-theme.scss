@@ -1,24 +1,34 @@
 .br-square {
-  --br-active-color: #4278F5;
-  --br-font-size: 30px;
-  --br-width: var(--br-font-size);
-  --br-height: var(--br-font-size);
+  --_br-active-color: #4278F5;
+  --_br-font-size: 30px;
+  --br-width: var(--_br-font-size);
+  --br-height: var(--_br-font-size);
 
   .br-units {
     counter-reset: counter;
   }
 
+  .br-unit-clone {
+    .br-unit-inner {
+      background-color: transparent;
+
+      &:after {
+        content: none !important;
+      }
+    }
+  }
+
   .br-unit-inner {
     width: var(--br-width);
     height: var(--br-height);
-    border: 2px solid var(--br-active-color);
+    border: 2px solid var(--_br-active-color);
     background-color: white;
     margin: 2px;
     text-decoration: none;
     font-size: 14px;
     line-height: 2;
     text-align: center;
-    color: var(--br-active-color);
+    color: var(--_br-active-color);
     font-weight: 600;
     opacity: 0.25;
 
@@ -36,10 +46,6 @@
 
     .br-active {
       opacity: 0.1;
-    }
-
-    .br-theme {
-      //color: lighten($orange-color, 10%);
     }
   }
 }
