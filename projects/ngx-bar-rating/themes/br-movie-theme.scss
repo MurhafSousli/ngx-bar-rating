@@ -1,6 +1,6 @@
 .br-movie {
-  --br-active-color: #4278F5;
-  --br-gap: 2px;
+  --_br-active-color: #4278F5;
+  --_br-gap: 2px;
   --br-width: 60px;
   --br-height: 8px;
 
@@ -13,7 +13,7 @@
     width: var(--br-width);
     height: var(--br-height);
     float: left;
-    background-color: var(--br-active-color);
+    background-color: var(--_br-active-color);
     opacity: 0.25;
 
     &.br-active {
@@ -34,6 +34,6 @@
     text-align: center;
     font-weight: 600;
     display: block;
-    color: var(--br-active-color);
+    color: var(--_br-active-color);
   }
 }

@@ -1,7 +1,7 @@
 $star-utf8: '\2605';
 
 .br-default {
-  --br-font-size: 26px;
+  --_br-font-size: 26px;
 
   .br-units {
     align-items: center;
@@ -11,18 +11,18 @@ $star-utf8: '\2605';
 
     &:before {
       content: $star-utf8;
-      color: var(--br-inactive-color);
+      color: var(--_br-inactive-color);
       width: 100%;
     }
   }
 
   .br-active:before {
-    color: var(--br-active-color);
+    color: var(--_br-active-color);
   }
 
   .br-fraction {
     &:after {
-      color: var(--br-active-color);
+      color: var(--_br-active-color);
       content: $star-utf8;
       width: 50%;
       position: absolute;

@@ -7,6 +7,10 @@
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://ngx-bar-rating.netlify.app/)
 [![npm](https://img.shields.io/badge/stackblitz-online-orange.svg)](https://stackblitz.com/edit/ngx-bar-rating)
 [![npm](https://img.shields.io/npm/v/ngx-bar-rating.svg)](https://www.npmjs.com/package/ngx-bar-rating)
+[![CI Build](https://github.com/MurhafSousli/ngx-bar-rating/actions/workflows/integrate.yml/badge.svg)](https://github.com/MurhafSousli/ngx-bar-rating/actions/workflows/integrate.yml)[![codecov](https://codecov.io/gh/MurhafSousli/ngx-bar-rating/graph/badge.svg?token=XH3LVM5QS6)](https://codecov.io/gh/MurhafSousli/ngx-bar-rating)
+[![Downloads](https://img.shields.io/npm/dt/ngx-bar-rating.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/ngx-bar-rating)
+[![Monthly Downloads](https://img.shields.io/npm/dm/ngx-bar-rating.svg)](https://www.npmjs.com/package/ngx-bar-rating)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-bar-rating.svg)](https://bundlephobia.com/result?p=ngx-bar-rating)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
 
 ___
@@ -19,6 +23,8 @@ If you like this plugin, please give it a star ⭐.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Options](#options)
+- [Click Effect](#click-effect)
+- [CSS Variables](#css-variables)
 - [Themes](#themes)
 - [Issues](#issues)
 - [Author](#author)
@@ -117,7 +123,7 @@ It can be used with Angular forms:
 
 ```html
 <form #form="ngForm">
-  <bar-rating name="rating" [(ngModel)]="formRating" [max]="4" required disabled></bar-rating>
+  <bar-rating name="rating" [(ngModel)]="formRating" [max]="4" required disabled/>
 </form>
 <p>form is valid: {{ form.valid ? 'true' : 'false' }}</p>
 <pre>{{ formRating }}</pre>
@@ -127,20 +133,33 @@ And reactive forms:
 
 ```html
 <form [formGroup]="ratingForm">
-  <bar-rating formControlName="rate" [max]="4" required disabled></bar-rating>
+  <bar-rating formControlName="rate" [max]="4" required disabled/>
 </form>
 <p>form is valid: {{ form.valid ? 'true' : 'false' }}</p>
 <pre>{{ formRating }}</pre>
 ```
 
+<a name="click-effect"/>
+
+## Click effect
+
+To apply a scale-fade effect when a bar is clicked, simply add the `effect` directive to the `<bar-rating>` component:
+
+```html
+<bar-rating effect/>
+```
+
 ## CSS variables
 
-- `--br-font-size` Sets the size of the step for the following themes: [`default`, `square`, `stars`].
-- `--br-width` Sets the width of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
-- `--br-height` Sets the height of the step for the following themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
-- `--br-gap` Sets the gap between the stars.
-- `--br-active-color` Sets active color.
-- `--br-inactive-color` Sets inactive color.
+* `--br-font-size`: Defines the font size for the step element. Affects the themes: [`default`, `square`, `stars`].
+* `--br-width`: Specifies the width of the step element. Affects the themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
+* `--br-height`: Specifies the height of the step element. Affects the themes: [`stars`, `square`, `movie`, `vertical`, `horizontal`].
+* `--br-gap`: Sets the gap between the individual steps.
+* `--br-active-color`: Defines the color for active steps.
+* `--br-inactive-color`: Defines the color for inactive steps.
+* `--br-effect-scale`: Specifies the scale value for the scale-fade effect (e.g., `2`).
+* `--br-effect-duration`: Sets the duration of the scale-fade animation (e.g., `0.4s`).
+* `--br-effect-ease`: Defines the easing function for the scale-fade animation (e.g., `ease-out`).
 
 <a name="themes"/>
 

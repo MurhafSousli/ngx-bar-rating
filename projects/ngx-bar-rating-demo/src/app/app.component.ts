@@ -10,15 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
   imports: [
     HeaderComponent,
     BarsComponent,
     StarsComponent,
     FooterComponent
-  ],
-  styleUrl: './app.component.scss'
+  ]
 })
 export class AppComponent {
   constructor(library: FaIconLibrary) {

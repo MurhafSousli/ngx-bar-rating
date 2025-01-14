@@ -12,21 +12,36 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-bar-rating/tsconfig.lib.json",
             "project": "projects/ngx-bar-rating/ng-package.json"
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-bar-rating/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-bar-rating/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-bar-rating/src/test.ts",
             "tsConfig": "projects/ngx-bar-rating/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "karmaConfig": "projects/ngx-bar-rating/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-bar-rating/**/*.ts",
+              "projects/ngx-bar-rating/**/*.html"
+            ]
           }
         }
       }
@@ -60,13 +75,15 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "projects/ngx-bar-rating-demo/src/styles.scss"
             ],
             "scripts": [],
             "server": "projects/ngx-bar-rating-demo/src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "projects/ngx-bar-rating-demo/server.ts"
+              "entry": "projects/ngx-bar-rating-demo/src/server.ts"
             }
           },
           "configurations": {
@@ -74,13 +91,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "15kb",
+                  "maximumError": "15kb"
                 }
               ],
               "outputHashing": "all"
@@ -106,7 +123,10 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ngx-bar-rating-demo:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -118,10 +138,8 @@
             "tsConfig": "projects/ngx-bar-rating-demo/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/ngx-bar-rating-demo/public"
-              }
+              "projects/ngx-bar-rating-demo/src/favicon.ico",
+              "projects/ngx-bar-rating-demo/src/assets"
             ],
             "styles": [
               "projects/ngx-bar-rating-demo/src/styles.scss"
@@ -131,5 +149,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

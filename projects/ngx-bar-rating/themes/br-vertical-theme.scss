@@ -15,7 +15,7 @@
     display: block;
     width: var(--br-width);
     height: var(--br-height);
-    background-color: var(--br-active-color);
+    background-color: var(--_br-active-color);
     margin-top: 1px;
     opacity: 0.25;
 
@@ -34,6 +34,6 @@
   .br-text {
     font-size: 18px;
     font-weight: 600;
-    color: var(--br-active-color);
+    color: var(--_br-active-color);
   }
 }

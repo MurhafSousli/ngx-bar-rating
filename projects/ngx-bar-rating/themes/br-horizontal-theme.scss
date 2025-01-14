@@ -14,7 +14,7 @@
     width: var(--br-width);
     height: var(--br-height);
     float: left;
-    background-color: var(--br-active-color);
+    background-color: var(--_br-active-color);
     margin: 1px;
     text-align: center;
     opacity: 0.25;
@@ -38,6 +38,6 @@
     width: 20px;
     margin-left: 20px;
     font-size: 18px;
-    color: var(--br-active-color);
+    color: var(--_br-active-color);
   }
 }

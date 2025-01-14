@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BarRating } from 'ngx-bar-rating';
+import { BarRating, BarRatingEffect } from 'ngx-bar-rating';
 
 @Component({
-  standalone: true,
   selector: 'bars',
   templateUrl: './bars.component.html',
-  styleUrls: ['./bars.component.scss'],
-  imports: [BarRating],
+  styleUrl: './bars.component.scss',
+  imports: [BarRating, BarRatingEffect],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BarsComponent {
