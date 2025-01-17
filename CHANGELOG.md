@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.0.1
+
+- refactor: export `BarRatinEffect` directive in `BarRatingModule`.
+
 ## 8.0.0
 
 - Upgrade to Angular 19.
